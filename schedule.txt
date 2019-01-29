@@ -1,0 +1,19 @@
+1. Andrew Ng's Mechine Learning Course
+  https://www.coursera.org/learn/machine-learning/home/welcome
+
+2. Python 3 Programming 
+  https://www.coursera.org/specializations/python-3-programming
+
+3. Probabilistic Graphical Models
+  https://www.coursera.org/specializations/probabilistic-graphical-models
+   Neural Networks and Deep Learning
+  https://www.coursera.org/learn/neural-networks-deep-learning
+
+4. Machine Learning, Data Science and Deep Learning with Python
+  https://www.udemy.com/data-science-and-machine-learning-with-python-hands-on/
+
+and, http://hunkim.github.io/ml/
+
+
+출처
+https://gomcine.tistory.com/entry/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-%EA%B3%B5%EB%B6%80-%EC%88%9C%EC%84%9C-%EB%B0%8F-%EB%B0%A9%EB%B2%95-%EA%B0%95%EC%9D%98-%EC%A0%95%EB%A6%AC
