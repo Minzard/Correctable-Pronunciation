@@ -6,7 +6,7 @@ by Siyoung Kim, Minje Kim, Hyunah jang, Joseph cha__
 
 ### 0. 개요
 ------------------------------
-<img src="/images/Zeroth.png" width="50%">   <img src="/images/AppDesign.png" width="50%">
+<img src="/images/Zeroth.png" width="50%">  <img src="/images/AppDesign.png" width="50%">
 
 
 ### 1. 제작 목적
