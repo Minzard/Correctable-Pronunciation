@@ -6,6 +6,10 @@ by Siyoung Kim, Minje Kim, Hyunah jang, Joseph cha__
 
 ### 0. 개요
 ------------------------------
+한국어 음성인식을 제공하는 kaldi toolkit을 사용하여 언어모델을 구현, 실시간 음성인식을 가능하게 하고
+음성인식 서버와 앱 연동을 진행한다. 
+또 음성인식률을 분석, 도표로 표현하여 사용자가 학습률, 일치율 확인이 가능하다.
+
 <img src="/images/Zeroth.png" width="50%"><img src="/images/AppDesign.png" width="50%">
 
 
