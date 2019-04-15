@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         Auth.auth().addStateDidChangeListener { (user, err) in
             if user != nil {
