@@ -1,1 +1,0 @@
-Django REST API Server
