@@ -1,4 +1,4 @@
-export KALDI_ROOT=`pwd`/../../..
+export KALDI_ROOT=c/Users/MINJE/gitlab/capstone/Correctable-Pronunciation/kaldi/egs/zeroth_korean/s5
 [ -f $KALDI_ROOT/tools/env.sh ] && . $KALDI_ROOT/tools/env.sh
 export PATH=$PWD/utils/:$KALDI_ROOT/tools/openfst/bin:$PWD:$PATH
 [ ! -f $KALDI_ROOT/tools/config/common_path.sh ] && echo >&2 "The standard file $KALDI_ROOT/tools/config/common_path.sh is not present -> Exit!" && exit 1
