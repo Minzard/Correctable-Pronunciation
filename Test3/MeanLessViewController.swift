@@ -6,14 +6,25 @@
 //  Copyright © 2019년 차요셉. All rights reserved.
 // 63 140 39
 
+
 import UIKit
 import Speech
 import AVFoundation
-class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate{
+import Alamofire
+import SwiftyJSON
+
+class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate{
+    
+    var audioPlayer: AVAudioPlayer?
+    var audioRecorder: AVAudioRecorder?
     
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var Play: UIButton!
+    @IBOutlet weak var Stop: UIButton!
+    
+    @IBOutlet weak var textView: UITextView!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -24,6 +35,9 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nextButton.isHidden = true
+        Play.isHidden = true
+        Stop.isHidden = true
         speechRecognizer?.delegate = self
         button.layer.cornerRadius = 8
         nextButton.layer.cornerRadius = 8
@@ -31,8 +45,45 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate{
         myView.layer.borderWidth = 2.5
         myView.layer.borderColor = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1).cgColor
         myView.layer.cornerRadius = 6
+
         
-        nextButton.isHidden = true
+        
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
+        let recordingName = "recordedVoice.wav"
+        //        let pathArray = [dirPath, recordingName]
+        //        let filePath = URL(string: pathArray.joined(separator: "/"))
+        let filepath = NSURL(fileURLWithPath: dirPath + "/" + recordingName)
+        
+        
+        // 녹음 품질 설정
+        let recordSettings = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
+                              AVEncoderBitRateKey: 16,
+                              AVNumberOfChannelsKey: 2,
+                              AVSampleRateKey: 44100.0] as [String : Any]
+        
+        // 공유 오디오 세션 인스턴스를 반환 받는다.
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            // 현재 오디오 세션의 카테고리를 정한다. (재생, 녹음)
+            try audioSession.setCategory(.record, mode: .default, options: [])
+            try audioSession.setCategory(.playAndRecord, mode: .default, options: [])
+            
+            
+        } catch {
+            print("audioSession error: \(error.localizedDescription)")
+        }
+        
+        
+        
+        
+        
+        // audioRecorder 인스턴스 생성
+        do {
+            try audioRecorder = AVAudioRecorder(url: filepath as URL, settings: recordSettings)
+            audioRecorder?.prepareToRecord()
+        } catch {
+            print("audioSession Error: \(error.localizedDescription)")
+        }
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -40,98 +91,90 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate{
         
     }
 
-    @IBAction func STT(_ sender: Any) {
-      /*  if audioEngine.isRunning {
-            audioEngine.stop()
-            recognitionRequest?.endAudio()
-            button.isEnabled = false
-            button.setTitle("Start Recording", for: .normal)
+    @IBAction func Recordudio(_ sender: Any) {
+        if audioRecorder?.isRecording == false {
+            Stop.isHidden = false
+            audioRecorder?.record()
+        }
+    }
+    
+    @IBAction func StopAudio(_ sender: Any) {
+        
+        button.isHidden = true
+        Play.isHidden = false
+        nextButton.isHidden = false
+        if audioRecorder?.isRecording == true {
+            audioRecorder?.stop()
         } else {
-         }   */
+            audioPlayer?.stop()
+        }
+        let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
         
-    
-            startRecording()
-            button.isHidden = true
-            audioEngine.stop()
-            recognitionRequest?.endAudio()
-            nextButton.isHidden = false
+        let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
+        
+        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
+        joseph = textView.text!
+        print(joseph!)
     }
     
-    
-    
-   
-    
-    
-    func startRecording() {
-        if recognitionTask != nil {
-            recognitionTask?.cancel()
-            recognitionTask = nil
-        }
-        
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(.record, mode: .default, options: [])
-            try audioSession.setMode(AVAudioSession.Mode.measurement)
-            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-        } catch {
-            print("audioSession properties weren't set because of an error.")
-        }
-        
-        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-        
-        let inputNode = audioEngine.inputNode
-        
-        guard let recognitionRequest = recognitionRequest else {
-            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
-        }
-        
-        recognitionRequest.shouldReportPartialResults = true
-        
-        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
-            
-            var isFinal = false
-            
-            if result != nil {
-                
-                self.joseph = result?.bestTranscription.formattedString
-                print(self.joseph!)
-                
-                isFinal = (result?.isFinal)!
-            }
-            
-            if error != nil || isFinal {
-                self.audioEngine.stop()
-                inputNode.removeTap(onBus: 0)
-                
-                self.recognitionRequest = nil
-                self.recognitionTask = nil
-                
-                self.button.isEnabled = true
-            }
-        })
-        
-        let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
-            self.recognitionRequest?.append(buffer)
-        }
-        
-        audioEngine.prepare()
-        
-        do {
-            try audioEngine.start()
-        } catch {
-            print("audioEngine couldn't start because of an error.")
-        }
-        
-        
-        
-    }
-    
-    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
-        if available {
-            button.isEnabled = true
-        } else {
+    @IBAction func PlayAudio(_ sender: Any) {
+        if audioRecorder?.isRecording == false {
+            Stop.isEnabled = true
             button.isEnabled = false
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf: (audioRecorder?.url)!)
+                audioPlayer!.delegate=self
+                audioPlayer!.prepareToPlay()
+                audioPlayer!.play()
+            } catch let error as NSError {
+                print("audioSession error: \(error.localizedDescription)")
+            }
         }
     }
+    
+    
+    @IBAction func next(_ sender: Any) {
+       
+        let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
+
+        let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
+
+        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
+        joseph = textView.text!
+        print(joseph!)
+        
+        let parameters: Parameters = [
+            "user": "차요셉",
+            "label": "아어",
+            "stt": joseph!
+        ]
+
+        Alamofire.request(
+            "http://172.20.10.8:8000/api/vi/ddobakis/",
+            method: .post, parameters: parameters,
+            encoding: JSONEncoding.default)
+
+        
+        
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        button.isEnabled = true
+        Stop.isEnabled = false
+    }
+    
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        print("Audio Play Decode Error")
+    }
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    }
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        print("Audio Record Encode Error")
+    }
+    
+    
+    
+    
+    
+    
 }

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3CB98EF1D56D057554D8CEF6ACF45ADD"
+               BlueprintIdentifier = "4EC300B44F0C4C53F9F727E2F0ADC346"
                BuildableName = "GoogleAppMeasurement"
                BlueprintName = "GoogleAppMeasurement"
                ReferencedContainer = "container:Pods.xcodeproj">

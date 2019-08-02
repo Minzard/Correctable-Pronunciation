@@ -126,16 +126,13 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
 - (UINavigationController *)authViewController {
   static UINavigationController *authViewController;
 
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    UIViewController *controller;
-    if ([self.delegate respondsToSelector:@selector(authPickerViewControllerForAuthUI:)]) {
-      controller = [self.delegate authPickerViewControllerForAuthUI:self];
-    } else {
-      controller = [[FUIAuthPickerViewController alloc] initWithAuthUI:self];
-    }
-    authViewController = [[UINavigationController alloc] initWithRootViewController:controller];
-  });
+  UIViewController *controller;
+  if ([self.delegate respondsToSelector:@selector(authPickerViewControllerForAuthUI:)]) {
+    controller = [self.delegate authPickerViewControllerForAuthUI:self];
+  } else {
+    controller = [[FUIAuthPickerViewController alloc] initWithAuthUI:self];
+  }
+  authViewController = [[UINavigationController alloc] initWithRootViewController:controller];
 
   return authViewController;
 }
@@ -243,7 +240,7 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
         // Check for and handle special case for Phone Auth Provider.
         if (providerUI.providerID == FIRPhoneAuthProviderID) {
           // Obtain temporary Phone Auth credential.
-          newCredential = error.userInfo[FIRAuthUpdatedCredentialKey];
+          newCredential = error.userInfo[FIRAuthErrorUserInfoUpdatedCredentialKey];
         }
         NSDictionary *userInfo = @{
           FUIAuthCredentialKey : newCredential,

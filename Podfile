@@ -6,12 +6,10 @@ target 'Test3' do
   use_frameworks!
 pod 'Firebase/Core'
 pod 'FirebaseUI/Auth'
-pod 'FirebaseUI/Google'
-pod 'FirebaseUI/Facebook'
-pod 'FirebaseUI/Twitter'
 pod 'FirebaseUI/Phone'
-pod 'Firebase/Storage'
 pod "MBCircularProgressBar"
-  # Pods for Test3
+pod 'Alamofire', '~> 4.7' 
+pod 'SwiftyJSON', '~> 3.0' 
+# Pods for Test3
 
 end

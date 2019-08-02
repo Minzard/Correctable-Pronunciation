@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-class ViewController: UIViewController {
+class ViewController: UIViewController { 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
@@ -27,14 +27,11 @@ class ViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
-            
-            
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         // Do any additional setup after loading the view, typically from a nib.
         Auth.auth().addStateDidChangeListener { (user, err) in
             if user != nil {

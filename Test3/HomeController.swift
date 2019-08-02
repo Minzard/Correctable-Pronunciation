@@ -16,7 +16,7 @@ class HomeController: UIViewController {
         userlabel.text = Auth.auth().currentUser?.email
         // Do any additional setup after loading the view.
     }
-    
+
     @IBAction func LogOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {

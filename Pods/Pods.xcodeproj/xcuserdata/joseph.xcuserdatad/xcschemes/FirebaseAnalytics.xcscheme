@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D781AA82BA5077E7FF015E60B508BDD"
+               BlueprintIdentifier = "A84C8F694FA260BF54CC0A1BF9F8E39C"
                BuildableName = "FirebaseAnalytics"
                BlueprintName = "FirebaseAnalytics"
                ReferencedContainer = "container:Pods.xcodeproj">
