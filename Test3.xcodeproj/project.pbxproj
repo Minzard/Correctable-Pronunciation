@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23D35ABA22F8F5920099ABE3 /* Graph View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35AB922F8F5920099ABE3 /* Graph View.swift */; };
+		23D35ABC22F8F6CB0099ABE3 /* Counter View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */; };
 		23FF8AFA227845B400B0041B /* MeanLessViewController(Test).swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF8AF9227845B400B0041B /* MeanLessViewController(Test).swift */; };
 		44DAFCA7D9A01279108917E7 /* Pods_Test3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9198BE2C5E43DC626F5AB1 /* Pods_Test3.framework */; };
 		7C55E083225BAF040003B099 /* 또바기.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C55E082225BAF040003B099 /* 또바기.png */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23D35AB922F8F5920099ABE3 /* Graph View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph View.swift"; sourceTree = "<group>"; };
+		23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter View.swift"; sourceTree = "<group>"; };
 		23FF8AF9227845B400B0041B /* MeanLessViewController(Test).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeanLessViewController(Test).swift"; sourceTree = "<group>"; };
 		5614E3D1E8ACE38FCF2E2DD5 /* Pods-Test3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test3.debug.xcconfig"; path = "Target Support Files/Pods-Test3/Pods-Test3.debug.xcconfig"; sourceTree = "<group>"; };
 		7C55E082225BAF040003B099 /* 또바기.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "또바기.png"; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				7C67F1FE226491FD006A66F4 /* github.swift */,
 				7C67F20122649817006A66F4 /* LaunchScreen.storyboard */,
 				23FF8AF9227845B400B0041B /* MeanLessViewController(Test).swift */,
+				23D35AB922F8F5920099ABE3 /* Graph View.swift */,
+				23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */,
 			);
 			path = Test3;
 			sourceTree = "<group>";
@@ -278,11 +284,13 @@
 			files = (
 				7C65D772224A31A900361252 /* TestTableTableViewController.swift in Sources */,
 				7CA83A0722416F0600F9AC8A /* ViewController.swift in Sources */,
+				23D35ABA22F8F5920099ABE3 /* Graph View.swift in Sources */,
 				7C67F1FF226491FD006A66F4 /* github.swift in Sources */,
 				7CA83A0522416F0600F9AC8A /* AppDelegate.swift in Sources */,
 				23FF8AFA227845B400B0041B /* MeanLessViewController(Test).swift in Sources */,
 				7C8A651B225B5C9800C9E1D4 /* MeanLessViewController2.swift in Sources */,
 				7CA4B57C2250A47D00D75715 /* HistoryController.swift in Sources */,
+				23D35ABC22F8F6CB0099ABE3 /* Counter View.swift in Sources */,
 				7CC3D574225267B2001F3380 /* MeanLessViewController.swift in Sources */,
 				7C8E54BC2241862B001F52C8 /* HomeController.swift in Sources */,
 			);

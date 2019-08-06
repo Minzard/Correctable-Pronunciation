@@ -529,62 +529,61 @@
                                     <navigationItem title="히스토리" id="5NJ-t0-V9S"/>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWA-jE-vYS" customClass="MBCircularProgressBarView">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2B-HH-uXV">
+                                <rect key="frame" x="37.5" y="169" width="300" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Rb-Pe-RPh" customClass="Counter_View" customModule="Test3" customModuleProvider="target">
+                                        <rect key="frame" x="-0.5" y="0.0" width="300" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="715-Gl-Vd6" customClass="Graph_View" customModule="Test3" customModuleProvider="target">
+                                        <rect key="frame" x="-0.5" y="0.0" width="300" height="300"/>
+                                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="XgB-4T-RqQ"/>
+                                            <constraint firstAttribute="height" constant="300" id="iKJ-5F-cVP"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="RVW-wR-Lmn"/>
-                                    <constraint firstAttribute="height" constant="300" id="Zfe-E0-pZ3"/>
+                                    <constraint firstAttribute="height" constant="300" id="B9D-JC-QeS"/>
+                                    <constraint firstAttribute="width" constant="300" id="H3I-9B-1hA"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                        <color key="value" red="0.94509803921568625" green="0.59215686274509804" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
-                                        <color key="value" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                        <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
-                                        <color key="value" red="0.94509803921568625" green="0.59215686274509804" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="xWA-jE-vYS" firstAttribute="centerX" secondItem="1XU-9H-ipn" secondAttribute="centerX" id="Gnu-aK-CIg"/>
-                            <constraint firstItem="xWA-jE-vYS" firstAttribute="centerY" secondItem="1XU-9H-ipn" secondAttribute="centerY" id="P7g-tG-SuD"/>
+                            <constraint firstItem="y2B-HH-uXV" firstAttribute="centerY" secondItem="yq9-WW-LdA" secondAttribute="centerY" id="d24-mh-dOT"/>
+                            <constraint firstItem="y2B-HH-uXV" firstAttribute="centerX" secondItem="yq9-WW-LdA" secondAttribute="centerX" id="w5Z-kR-81z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yq9-WW-LdA"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="HL6-ft-5ab" appends="YES" id="ddF-9E-32x"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="yt6-D8-VZH"/>
                     <connections>
-                        <outlet property="progressView" destination="xWA-jE-vYS" id="mhS-Si-i7O"/>
+                        <outlet property="counterView" destination="6Rb-Pe-RPh" id="MvX-Zj-C6O"/>
+                        <outlet property="graphView" destination="715-Gl-Vd6" id="EEO-4f-OCW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huD-pk-y6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HL6-ft-5ab">
+                    <connections>
+                        <action selector="counterViewTap:" destination="242-1W-tMK" id="Kd1-h8-Ikh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="617" y="810"/>
+            <point key="canvasLocation" x="689" y="945"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JHq-0p-sY3">

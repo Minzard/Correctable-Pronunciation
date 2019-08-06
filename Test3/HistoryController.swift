@@ -11,17 +11,49 @@ import MBCircularProgressBar
 
 class HistoryController: UIViewController {
 
-    @IBOutlet weak var progressView: MBCircularProgressBarView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.progressView.value=0
-    }
+   
+    @IBOutlet weak var graphView: Graph_View!
+    @IBOutlet weak var counterView: Counter_View!
+    var isGraphViewShowing = true
     
-
-    override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 4.0) {
-            self.progressView.value=60.0
+    @IBAction func counterViewTap(_ gesture: UITapGestureRecognizer?) {
+        if(isGraphViewShowing) {
+            UIView.transition(from: graphView, to: counterView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
+        } else {
+            UIView.transition(from: counterView, to: graphView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
+            setupGraphDisplay()
         }
+        isGraphViewShowing = !isGraphViewShowing
+       
     }
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    
+    func setupGraphDisplay() {
+        let maxDayIndex = 7
+        graphView.graphPoints[graphView.graphPoints.count - 1] = 7
+        graphView.setNeedsDisplay()
+//        maxLabel.text = "\(graphView.graphPoints.max()!)"
+        
+        let average = graphView.graphPoints.reduce(0, +)
+//        averageWaterDrunk.text = "\(average)"
+        
+        let today = Date()
+        let calendar = Calendar.current
+        
+        let formatter = DateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("EEEEE")
+        
+//        for i in 0...maxDayIndex {
+//            if let date = calendar.date(byAdding: .day, value: -i, to: today),
+//                let label = stackView.arrangedSubviews[maxDayIndex - i] as? UILabel {
+//                label.text = formatter.string(from: date)
+//            }
+//            
+//        }
+    }
 }
