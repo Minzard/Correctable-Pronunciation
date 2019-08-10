@@ -18,6 +18,12 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
     
+    @IBOutlet weak var previewView: UIView!
+    var captureSession: AVCaptureSession!
+    var stillImageOutput: AVCapturePhotoOutput!
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+    
+    
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -32,6 +38,46 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     private let audioEngine = AVAudioEngine()
     var joseph:String?
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Setup your camera here...
+        captureSession = AVCaptureSession()
+        captureSession.sessionPreset = .medium
+        
+        guard let frontCamera = AVCaptureDevice.default(
+            .builtInWideAngleCamera,
+            for: AVMediaType.video,
+            position: .front)
+            else {
+                print("Unable to access back camera!")
+                return
+        }
+        
+        do {
+            let input = try AVCaptureDeviceInput(device: frontCamera)
+            stillImageOutput = AVCapturePhotoOutput()
+            
+            if captureSession.canAddInput(input) && captureSession.canAddOutput(stillImageOutput) {
+                captureSession.addInput(input)
+                captureSession.addOutput(stillImageOutput)
+                setupLivePreview()
+            }
+            //Step 9
+        }
+        catch let error  {
+            print("Error Unable to initialize back camera:  \(error.localizedDescription)")
+        }
+        
+        
+        
+        DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
+            self.captureSession.startRunning()
+            //Step 13
+        }
+        DispatchQueue.main.async {
+            self.videoPreviewLayer.frame = self.previewView.bounds
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,8 +219,17 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     }
     
     
-    
-    
+    // camera
+    func setupLivePreview() {
+        
+        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        
+        videoPreviewLayer.videoGravity = .resizeAspect
+        videoPreviewLayer.connection?.videoOrientation = .portrait
+        previewView.layer.addSublayer(videoPreviewLayer)
+        
+        //Step12
+    }
     
     
 }
