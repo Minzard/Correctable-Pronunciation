@@ -11,6 +11,7 @@ import UIKit
 import Speech
 import AVFoundation
 import Alamofire
+import AVKit
 import SwiftyJSON
 
 class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate{
@@ -30,7 +31,11 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     @IBOutlet weak var Play: UIButton!
     @IBOutlet weak var Stop: UIButton!
     
+    @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var textView: UITextView!
+    
+    var player: AVPlayer!
+    var avpController = AVPlayerViewController()
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -44,6 +49,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .medium
         
+        // ios 10 이상부턴 .builtInWideAngleCamera
         guard let frontCamera = AVCaptureDevice.default(
             .builtInWideAngleCamera,
             for: AVMediaType.video,
@@ -79,6 +85,20 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         }
     }
     
+    
+    
+    @IBAction func VideoClick(_ sender: Any) {
+        guard let path = Bundle.main.path(forResource: "시영", ofType:"mp4") else {
+            debugPrint("video.m4v not found")
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.videoView.bounds
+        self.videoView.layer.addSublayer(playerLayer)
+        player.play()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         nextButton.isHidden = true
@@ -196,7 +216,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         ]
 
         Alamofire.request(
-            "http://172.20.10.8:8000/api/vi/ddobakis/",
+            "http://2e8318da.ngrok.io/api/vi/ddobakis/",
             method: .post, parameters: parameters,
             encoding: JSONEncoding.default)
 
@@ -231,5 +251,17 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         //Step12
     }
     
+    private func playVideo() {
+        guard let path = Bundle.main.path(forResource: "video", ofType:"m4v") else {
+            debugPrint("video.m4v not found")
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        present(playerController, animated: true) {
+            player.play()
+        }
+    }
     
 }
