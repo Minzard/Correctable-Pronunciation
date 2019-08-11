@@ -88,7 +88,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     
     
     @IBAction func VideoClick(_ sender: Any) {
-        guard let path = Bundle.main.path(forResource: "시영", ofType:"mp4") else {
+        guard let path = Bundle.main.path(forResource: "아어", ofType:"mp4") else {
             debugPrint("video.m4v not found")
             return
         }
@@ -97,10 +97,22 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.videoView.bounds
         self.videoView.layer.addSublayer(playerLayer)
+        
         player.play()
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let imageName = "이아썸네일.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: 145, height: 154)
+    
+        self.videoView.addSubview(imageView)
+        //Imageview on Top of View
+        self.videoView.bringSubviewToFront(imageView)
+        
+        
         nextButton.isHidden = true
         Play.isHidden = true
         Stop.isHidden = true
@@ -169,6 +181,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         button.isHidden = true
         Play.isHidden = false
         nextButton.isHidden = false
+        Stop.isHidden = true
         if audioRecorder?.isRecording == true {
             audioRecorder?.stop()
         } else {
@@ -251,17 +264,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         //Step12
     }
     
-    private func playVideo() {
-        guard let path = Bundle.main.path(forResource: "video", ofType:"m4v") else {
-            debugPrint("video.m4v not found")
-            return
-        }
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        let playerController = AVPlayerViewController()
-        playerController.player = player
-        present(playerController, animated: true) {
-            player.play()
-        }
-    }
+    
     
 }
