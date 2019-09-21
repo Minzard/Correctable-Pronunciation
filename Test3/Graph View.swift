@@ -10,7 +10,9 @@ import UIKit
 
 
 @IBDesignable class Graph_View: UIView {
-    var graphPoints = [4,2,6,4,5,8,3]
+    
+    // GraphView == WeeklyView
+    var graphPoints = [4,2,6,4,5,8,22]
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 8.0, height: 8.0)
         static let margin: CGFloat = 20.0
@@ -19,6 +21,8 @@ import UIKit
         static let colorAlpha: CGFloat = 0.3
         static let circleDiameter: CGFloat = 5.0
     }
+    
+    // 1. 그래디언트 프로퍼티: IBInspectable이므로 storyboard에서 변경 가능
     @IBInspectable var startColor: UIColor = .red
     @IBInspectable var endColor: UIColor = .green
     
@@ -30,12 +34,16 @@ import UIKit
         let context = UIGraphicsGetCurrentContext()!
         let colors = [startColor.cgColor, endColor.cgColor]
         
+        // 3. 컬라스페이스 (CMYK, greyscale, RGB 중에서 선택)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
+        // 4. 그래디언트를 위한 컬러 변경 위치
         let colorLocations: [CGFloat] = [0.0, 1.0]
         
+        // 5. 그래디언트 생성
         let gradient = CGGradient(colorsSpace: colorSpace, colors: colors as CFArray, locations: colorLocations)!
         
+        // 6. 그래디언트 드로잉
         let startPoint = CGPoint.zero
         let endPoint = CGPoint(x: 0, y: bounds.height)
         context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
@@ -51,7 +59,7 @@ import UIKit
         let topBorder = Constants.topBorder
         let bottomBorder = Constants.bottomBorder
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = graphPoints.max()!
+        let maxValue = 100
         let columnYPoint = { (graphPoint: Int) -> CGFloat in
             let y = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
             return graphHeight + topBorder - y

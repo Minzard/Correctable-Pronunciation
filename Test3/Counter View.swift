@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// CounterView == MonthlyView
 @IBDesignable class Counter_View: UIView {
     var graphPoints = [4,2,6,4,5,8,3]
     private struct Constants {
@@ -51,7 +51,7 @@ import UIKit
         let topBorder = Constants.topBorder
         let bottomBorder = Constants.bottomBorder
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = graphPoints.max()!
+        let maxValue = 100
         let columnYPoint = { (graphPoint: Int) -> CGFloat in
             let y = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
             return graphHeight + topBorder - y
