@@ -200,7 +200,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="AuG-DC-pkZ" kind="show" id="oG2-Xq-3Ny"/>
+                                            <segue destination="4iq-xA-S07" kind="show" id="8w2-CZ-T6k"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -292,6 +292,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dh-wR-rGR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2832.8000000000002" y="544.67766116941539"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="0fx-un-5yd">
+            <objects>
+                <tableViewController id="4iq-xA-S07" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E9R-qu-NGw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="k68-GH-x1m">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k68-GH-x1m" id="Te4-vb-bwo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="4iq-xA-S07" id="Pab-o1-vXq"/>
+                            <outlet property="delegate" destination="4iq-xA-S07" id="AVH-rN-Wm4"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvB-Os-Vlv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3047" y="-367"/>
         </scene>
         <!--무의미음절-->
         <scene sceneID="wcb-Ug-2oy">
@@ -424,7 +453,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3997.5999999999999" y="-86.806596701649184"/>
+            <point key="canvasLocation" x="4049" y="-230"/>
         </scene>
         <!--Mean Less View Controller2-->
         <scene sceneID="rl8-Ek-zRp">
@@ -555,7 +584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o84-lU-zcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4720.8000000000002" y="-87.706146926536732"/>
+            <point key="canvasLocation" x="4820" y="-231"/>
         </scene>
         <!--이중모음-->
         <scene sceneID="AQt-Wk-MDF">

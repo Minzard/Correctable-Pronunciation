@@ -37,6 +37,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     var player: AVPlayer!
     var avpController = AVPlayerViewController()
     
+    
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
