@@ -293,16 +293,16 @@
             </objects>
             <point key="canvasLocation" x="2832.8000000000002" y="544.67766116941539"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Meaning Less Table View Controller-->
         <scene sceneID="0fx-un-5yd">
             <objects>
-                <tableViewController id="4iq-xA-S07" sceneMemberID="viewController">
+                <tableViewController id="4iq-xA-S07" customClass="MeaningLessTableViewController" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E9R-qu-NGw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="k68-GH-x1m">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="k68-GH-x1m" customClass="MeaningLess" customModule="Test3" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k68-GH-x1m" id="Te4-vb-bwo">
@@ -320,7 +320,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvB-Os-Vlv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3047" y="-367"/>
+            <point key="canvasLocation" x="3022" y="-505"/>
         </scene>
         <!--무의미음절-->
         <scene sceneID="wcb-Ug-2oy">

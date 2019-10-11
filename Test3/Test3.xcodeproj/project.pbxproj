@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2309A77E2300CFC5002FAFE1 /* 아어.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2309A77B2300CA07002FAFE1 /* 아어.mp4 */; };
 		2309A7802300D19B002FAFE1 /* 이아썸네일.png in Resources */ = {isa = PBXBuildFile; fileRef = 2309A77F2300D19B002FAFE1 /* 이아썸네일.png */; };
+		2395FDA1234F2B80004DA943 /* MeaningLessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FDA0234F2B80004DA943 /* MeaningLessTableViewController.swift */; };
 		23D35ABA22F8F5920099ABE3 /* Graph View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35AB922F8F5920099ABE3 /* Graph View.swift */; };
 		23D35ABC22F8F6CB0099ABE3 /* Counter View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */; };
 		23D4AD0D230038C200D9219C /* 시영.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 23D4AD0C230038C200D9219C /* 시영.mp4 */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		2309A77B2300CA07002FAFE1 /* 아어.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "아어.mp4"; sourceTree = SOURCE_ROOT; };
 		2309A77F2300D19B002FAFE1 /* 이아썸네일.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "이아썸네일.png"; sourceTree = SOURCE_ROOT; };
+		2395FDA0234F2B80004DA943 /* MeaningLessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningLessTableViewController.swift; sourceTree = "<group>"; };
 		23D35AB922F8F5920099ABE3 /* Graph View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph View.swift"; sourceTree = "<group>"; };
 		23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter View.swift"; sourceTree = "<group>"; };
 		23D4AD0C230038C200D9219C /* 시영.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "시영.mp4"; sourceTree = SOURCE_ROOT; };
@@ -114,6 +116,7 @@
 				7CA4B57B2250A47D00D75715 /* HistoryController.swift */,
 				23D35AB922F8F5920099ABE3 /* Graph View.swift */,
 				23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */,
+				2395FDA0234F2B80004DA943 /* MeaningLessTableViewController.swift */,
 			);
 			path = Test3;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				7CA83A0522416F0600F9AC8A /* AppDelegate.swift in Sources */,
 				7C8A651B225B5C9800C9E1D4 /* MeanLessViewController2.swift in Sources */,
 				7CA4B57C2250A47D00D75715 /* HistoryController.swift in Sources */,
+				2395FDA1234F2B80004DA943 /* MeaningLessTableViewController.swift in Sources */,
 				23D35ABC22F8F6CB0099ABE3 /* Counter View.swift in Sources */,
 				7CC3D574225267B2001F3380 /* MeanLessViewController.swift in Sources */,
 				7C8E54BC2241862B001F52C8 /* HomeController.swift in Sources */,
