@@ -9,7 +9,7 @@
 import UIKit
 
 class MeaningLessTableViewController: UITableViewController {
-
+    var MeanLess:Array<String> = ["아","이","우","어","오","야","으","에","우","아","이","아"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,19 +19,19 @@ class MeaningLessTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return MeanLess.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MeaningLess", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MeanLess", for: indexPath)
 
-        
+        cell.textLabel?.text = MeanLess[indexPath.row]
 
         return cell
     }

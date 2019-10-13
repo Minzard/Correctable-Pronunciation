@@ -9,7 +9,7 @@
 import UIKit
 
 class MinimumpairTableViewController: UITableViewController {
-
+    var MinPair:Array<String> = ["예","얘","여","유","요","야","위","웨","워","와","의","예","워","유","야"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,23 +24,24 @@ class MinimumpairTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return MinPair.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MinPair", for: indexPath)
 
+        cell.textLabel?.text = MinPair[indexPath.row]
         // Configure the cell...
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
