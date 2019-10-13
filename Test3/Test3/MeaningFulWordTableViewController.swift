@@ -9,7 +9,7 @@
 import UIKit
 
 class MeaningFulWordTableViewController: UITableViewController {
-    var MeanFul:Array<String> = ["사과","오이","우유","의자","소설","문학","음악","신호","그릇","숙제","부얶","리본","신발","그릇","음악","수락","치마","기린","판사"]
+    var MeanFul:Array<String> = ["사과","오이","우유","의자","소설","문학","음악","신호","그릇","숙제","부얶","리본","신발","음악","수락","치마","기린","판사"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
