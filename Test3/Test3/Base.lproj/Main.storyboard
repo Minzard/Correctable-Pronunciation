@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cHu-Ny-n0n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -133,13 +133,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iao-vr-L3g">
                                 <rect key="frame" x="41.5" y="361" width="292" height="19"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="freelove54@naver.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haW-5J-m2K">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="freelove54@naver.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haW-5J-m2K">
                                         <rect key="frame" x="0.0" y="0.0" width="185" height="19"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldItalicMT" family="Arial" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="님 환영합니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCW-8j-7TB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님 환영합니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCW-8j-7TB">
                                         <rect key="frame" x="193" y="0.0" width="99" height="19"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldItalicMT" family="Arial" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -149,7 +149,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Iao-vr-L3g" secondAttribute="height" multiplier="292:19" id="Msw-Kh-CxS"/>
                                     <constraint firstAttribute="height" constant="19" id="VSD-iu-fif"/>
+                                    <constraint firstItem="CCW-8j-7TB" firstAttribute="leading" secondItem="haW-5J-m2K" secondAttribute="leading" id="VrK-JK-LPd"/>
                                     <constraint firstAttribute="width" constant="292" id="kM7-tk-cqp"/>
+                                    <constraint firstAttribute="trailing" secondItem="CCW-8j-7TB" secondAttribute="trailing" id="rmT-xQ-3GV"/>
+                                    <constraint firstItem="haW-5J-m2K" firstAttribute="leading" secondItem="Iao-vr-L3g" secondAttribute="leading" id="tvy-5e-puy"/>
+                                    <constraint firstAttribute="trailing" secondItem="haW-5J-m2K" secondAttribute="trailing" constant="107" id="xa3-qW-sFE"/>
+                                    <constraint firstItem="CCW-8j-7TB" firstAttribute="leading" secondItem="Iao-vr-L3g" secondAttribute="leading" constant="193" id="yzl-Kt-xB5"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -159,10 +164,12 @@
                             <constraint firstItem="Iao-vr-L3g" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="6cM-eZ-q36"/>
                             <constraint firstItem="hE1-aq-1vK" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="6ez-ct-Z1F"/>
                             <constraint firstItem="EqV-oQ-tFy" firstAttribute="bottom" secondItem="hE1-aq-1vK" secondAttribute="bottom" constant="16" id="J6q-f7-7RX"/>
+                            <constraint firstItem="Iao-vr-L3g" firstAttribute="leading" secondItem="EqV-oQ-tFy" secondAttribute="leading" constant="41.5" id="Oc9-pt-W5y"/>
                             <constraint firstItem="BdM-xJ-ylO" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="Wgo-Pu-bDs"/>
                             <constraint firstItem="BdM-xJ-ylO" firstAttribute="top" secondItem="EqV-oQ-tFy" secondAttribute="top" constant="84" id="dzy-uf-YbN"/>
                             <constraint firstItem="BdM-xJ-ylO" firstAttribute="centerY" secondItem="EqV-oQ-tFy" secondAttribute="centerY" id="hql-bT-cot"/>
                             <constraint firstItem="hE1-aq-1vK" firstAttribute="top" secondItem="Iao-vr-L3g" secondAttribute="bottom" constant="203" id="ik4-id-bBM"/>
+                            <constraint firstItem="EqV-oQ-tFy" firstAttribute="trailing" secondItem="Iao-vr-L3g" secondAttribute="trailing" constant="41.5" id="mvj-r4-L6f"/>
                             <constraint firstItem="Iao-vr-L3g" firstAttribute="top" secondItem="BdM-xJ-ylO" secondAttribute="bottom" constant="29" id="ygC-3Q-Nfr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EqV-oQ-tFy"/>
