@@ -12,6 +12,7 @@ import MBCircularProgressBar
 class HistoryController: UIViewController {
 
    
+    @IBOutlet weak var MonthlyAverage: UILabel!
     @IBOutlet weak var WeeklyAverage: UILabel!
     @IBOutlet weak var graphView: Graph_View!
     @IBOutlet weak var counterView: Counter_View!

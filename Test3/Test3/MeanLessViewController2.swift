@@ -25,7 +25,7 @@ class MeanLessViewController2: UIViewController {
     @IBOutlet weak var sixthView: UILabel!
     
     @IBAction func response(_ sender: Any) {
-        Alamofire.request("http://2e8318da.ngrok.io/api/vi/ddobakis/").responseJSON { response in
+        Alamofire.request("http://192.168.11.179:8000/api/vi/ddobakis/").responseJSON { response in
             print("Result: \(response.result)")                         // response serialization result
             
             if let json = response.result.value {

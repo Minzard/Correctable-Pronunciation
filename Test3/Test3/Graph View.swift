@@ -12,7 +12,7 @@ import UIKit
 @IBDesignable class Graph_View: UIView {
     
     // GraphView == WeeklyView
-    var graphPoints = [4,2,6,4,5,8,22]
+    var graphPoints = [84,86,80,85,87,86,87]
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 8.0, height: 8.0)
         static let margin: CGFloat = 20.0
