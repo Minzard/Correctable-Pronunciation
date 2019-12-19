@@ -26,6 +26,7 @@ class HistoryController: UIViewController {
         if(isGraphViewShowing) {
             // graphView에서 CounterView로 변경
             UIView.transition(from: graphView, to: counterView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
+            
            
         } else {
             // CounterView에서 graphView로 변경

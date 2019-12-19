@@ -94,6 +94,11 @@ class MeanLessViewController2: UIViewController {
         
         
 }
+    
+    @IBAction func dismissModal(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.progressView.value=0

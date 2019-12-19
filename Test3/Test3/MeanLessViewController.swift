@@ -106,26 +106,26 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     }
     override func viewDidLoad() {
         //생성한 콘텍스트의 정보를 가져온다.
-        let context = UIGraphicsGetCurrentContext()!
-        
-        //선굵기 설정
-        context.setLineWidth(2.0)
-        //선 칼라 설정
-        context.setStrokeColor(UIColor.red.cgColor)
-        //시작위치로 커서 이동
-        context.move(to: CGPoint(x:50, y:50))
-        context.addLine(to: CGPoint(x:250, y:250))
-        context.strokePath()
-        
-        
-        //삼각형 그리기
-        context.setLineWidth(4.0)
-        context.setStrokeColor(UIColor.blue.cgColor)
-        context.move(to: CGPoint(x:150, y:200))
-        context.addLine(to: CGPoint(x:250, y:350))
-        context.addLine(to: CGPoint(x:50, y:350))
-        context.addLine(to: CGPoint(x:150, y:200))
-        context.strokePath()
+//        let context = UIGraphicsGetCurrentContext()!
+//        
+//        //선굵기 설정
+//        context.setLineWidth(2.0)
+//        //선 칼라 설정
+//        context.setStrokeColor(UIColor.red.cgColor)
+//        //시작위치로 커서 이동
+//        context.move(to: CGPoint(x:50, y:50))
+//        context.addLine(to: CGPoint(x:250, y:250))
+//        context.strokePath()
+//        
+//        
+//        //삼각형 그리기
+//        context.setLineWidth(4.0)
+//        context.setStrokeColor(UIColor.blue.cgColor)
+//        context.move(to: CGPoint(x:150, y:200))
+//        context.addLine(to: CGPoint(x:250, y:350))
+//        context.addLine(to: CGPoint(x:50, y:350))
+//        context.addLine(to: CGPoint(x:150, y:200))
+//        context.strokePath()
         
         imageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

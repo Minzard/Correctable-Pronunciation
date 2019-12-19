@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cHu-Ny-n0n">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -375,7 +375,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="AuG-DC-pkZ" kind="show" id="iGy-3A-ktH"/>
+                                    <segue destination="AuG-DC-pkZ" kind="show" id="ydQ-7l-1JS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -486,7 +486,7 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="AuG-DC-pkZ" eventType="touchUpInside" id="LtY-C7-v2f"/>
-                                    <segue destination="p0X-6a-oVh" kind="show" id="wK2-jh-fUF"/>
+                                    <segue destination="p0X-6a-oVh" kind="presentation" id="wK2-jh-fUF"/>
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7d-Ii-PcS">
@@ -531,6 +531,13 @@
                                 <rect key="frame" x="67" y="282" width="240" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIT-8B-aqn">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="무의미음절" id="RwJ-Ve-H1q"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="20" bottom="0.0" trailing="20"/>
@@ -670,10 +677,29 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HIP-MZ-CeZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="무의미음절" id="x1W-PI-gOe">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="PfD-9u-6UG">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QJ9-ff-zmn">
+                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="dismissModal:" destination="p0X-6a-oVh" eventType="touchUpInside" id="SNe-SX-hnb"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="blr-y5-8s9"/>
                     </view>
+                    <navigationItem key="navigationItem" id="eyo-HF-w7S"/>
                     <connections>
                         <outlet property="fifthView" destination="tda-AC-h36" id="Tsh-BE-col"/>
                         <outlet property="firstView" destination="DMJ-X4-NLZ" id="kL3-Ci-SgD"/>
@@ -689,22 +715,6 @@
             </objects>
             <point key="canvasLocation" x="5626" y="-233"/>
         </scene>
-        <!--이중모음-->
-        <scene sceneID="AQt-Wk-MDF">
-            <objects>
-                <viewController id="u01-4z-ghN" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qhC-7a-9fM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="iQN-er-Neh"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="이중모음" id="P1j-q5-aBG"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U88-S7-U2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5866" y="681"/>
-        </scene>
         <!--History Controller-->
         <scene sceneID="r3c-WL-jcQ">
             <objects>
@@ -713,19 +723,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-za-w6z">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="히스토리" id="5NJ-t0-V9S"/>
-                                </items>
-                            </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WkA-gN-MuK">
-                                <rect key="frame" x="-4" y="108" width="383" height="491"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WkA-gN-MuK">
+                                <rect key="frame" x="0.0" y="88" width="375" height="491"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Rb-Pe-RPh" customClass="Counter_View" customModule="Test3" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="343" height="451"/>
+                                        <rect key="frame" x="20" y="20" width="335" height="451"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYH-lL-kW7">
@@ -931,6 +933,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="WkA-gN-MuK" firstAttribute="leading" secondItem="yq9-WW-LdA" secondAttribute="leading" id="2AX-wI-QUq"/>
+                            <constraint firstItem="yq9-WW-LdA" firstAttribute="trailing" secondItem="WkA-gN-MuK" secondAttribute="trailing" id="XDL-f7-sBZ"/>
+                            <constraint firstItem="yq9-WW-LdA" firstAttribute="bottom" secondItem="WkA-gN-MuK" secondAttribute="bottom" constant="39" id="XSj-Sw-CKC"/>
+                            <constraint firstItem="WkA-gN-MuK" firstAttribute="top" secondItem="yq9-WW-LdA" secondAttribute="top" constant="68" id="yIJ-WZ-6Lc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yq9-WW-LdA"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="yt6-D8-VZH"/>
@@ -949,7 +957,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="913" y="928"/>
+            <point key="canvasLocation" x="912.79999999999995" y="927.88605697151434"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JHq-0p-sY3">
@@ -969,22 +977,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiT-DN-aGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1830" y="283"/>
-        </scene>
-        <!--최소대립쌍-->
-        <scene sceneID="lhV-aG-Hx5">
-            <objects>
-                <viewController id="w5n-zj-gSf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gdr-Be-9hU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Kpc-zv-eQ4"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="최소대립쌍" id="drO-hO-HRs"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pUj-FQ-lNG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4752.8000000000002" y="1018.7406296851575"/>
         </scene>
         <!--Double Vowel Table View Controller-->
         <scene sceneID="m1t-6P-RxI">
@@ -1017,27 +1009,11 @@
             </objects>
             <point key="canvasLocation" x="3502" y="1620"/>
         </scene>
-        <!--의미있는 단어-->
-        <scene sceneID="65m-Fp-JP2">
-            <objects>
-                <viewController id="dAQ-Pg-RAv" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="l4l-yB-dds">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="0gD-69-ePX"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="의미있는 단어" id="hNW-uY-gQW"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="prS-wP-vf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4796" y="1746"/>
-        </scene>
     </scenes>
     <resources>
         <image name="그림1.png" width="241.91999816894531" height="227.52000427246094"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6bu-01-H7f"/>
+        <segue reference="ydQ-7l-1JS"/>
     </inferredMetricsTieBreakers>
 </document>
