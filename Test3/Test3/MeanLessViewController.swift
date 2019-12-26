@@ -15,29 +15,26 @@ import AVKit
 import SwiftyJSON
 
 class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate{
-    
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
+    var player: AVPlayer!
+    var avpController = AVPlayerViewController()
     
-    @IBOutlet weak var previewView: UIView!
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     
-    
-    @IBOutlet weak var myView: UIView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var Play: UIButton!
     @IBOutlet weak var Stop: UIButton!
-    
+    @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var textView: UITextView!
-    
-    var player: AVPlayer!
-    var avpController = AVPlayerViewController()
+    @IBOutlet weak var wordView: UIView!
     
     
+    // 음성인식 설정
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -63,7 +60,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         do {
             let input = try AVCaptureDeviceInput(device: frontCamera)
             stillImageOutput = AVCapturePhotoOutput()
-            
             if captureSession.canAddInput(input) && captureSession.canAddOutput(stillImageOutput) {
                 captureSession.addInput(input)
                 captureSession.addOutput(stillImageOutput)
@@ -83,46 +79,50 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         }
         DispatchQueue.main.async {
             self.videoPreviewLayer.frame = self.previewView.bounds
+            self.videoView.layer.cornerRadius = 9
+            self.videoView.clipsToBounds = true
+            
+            self.previewView.layer.cornerRadius = 9
+            self.previewView.clipsToBounds = true
         }
     }
     
     
     
-    @IBAction func VideoClick(_ sender: Any) {
-        guard let path = Bundle.main.path(forResource: "아어", ofType:"mp4") else {
-            debugPrint("video.m4v not found")
-            return
-        }
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = self.videoView.bounds
-        playerLayer.videoGravity = .resizeAspectFill
-        self.videoView.layer.addSublayer(playerLayer)
-        
-        player.play()
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageName = "아어썸네일2.png"
+        // videoView's cornerRidus 설정
+        self.videoView.layer.cornerRadius = 9
+        self.videoView.clipsToBounds = true
+        
+        // previewView's cornerRidus 설정
+        self.previewView.layer.cornerRadius = 9
+        self.previewView.clipsToBounds = true
+        
+        // wordView 테두리 설정
+        wordView.layer.borderWidth = 2
+        wordView.layer.borderColor = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1).cgColor
+        wordView.layer.cornerRadius = 9
+        
+        // imageView 에 이미지 넣기
+        let imageName = "아어썸네일3.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
         imageView.frame = self.videoView.bounds
-        
         self.videoView.addSubview(imageView)
         
-        
-        
+        // 버튼 UI 초기화
         nextButton.isHidden = true
         Play.isHidden = true
         Stop.isHidden = true
+        button.layer.cornerRadius = 9
+        nextButton.layer.cornerRadius = 9
+        Play.layer.cornerRadius = 9
+        Stop.layer.cornerRadius = 9
+        
+        // 음성인식 델리게이트 설정
         speechRecognizer?.delegate = self
-        button.layer.cornerRadius = 8
-        nextButton.layer.cornerRadius = 8
-        
-        
-        
+        // 녹음 설정
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
         //        let pathArray = [dirPath, recordingName]
@@ -148,10 +148,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
             print("audioSession error: \(error.localizedDescription)")
         }
         
-        
-        
-        
-        
         // audioRecorder 인스턴스 생성
         do {
             try audioRecorder = AVAudioRecorder(url: filepath as URL, settings: recordSettings)
@@ -162,7 +158,25 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         
     }
     
-
+    // 영상 재생 탭제츠처
+    @IBAction func VideoClick(_ sender: Any) {
+        guard let path = Bundle.main.path(forResource: "아어", ofType:"mp4") else {
+            debugPrint("video.m4v not found")
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.videoView.bounds
+        playerLayer.videoGravity = .resize
+        self.videoView.layer.addSublayer(playerLayer)
+        
+        player.play()
+        
+        videoView.layer.cornerRadius = 6
+    }
+    
+    // 녹음 버튼
     @IBAction func Recordudio(_ sender: Any) {
         if audioRecorder?.isRecording == false {
             Stop.isHidden = false
@@ -170,6 +184,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         }
     }
     
+    // 멈춤 버튼
     @IBAction func StopAudio(_ sender: Any) {
         
         button.isHidden = true
@@ -190,6 +205,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         print(joseph!)
     }
     
+    // 재생 버튼
     @IBAction func PlayAudio(_ sender: Any) {
         if audioRecorder?.isRecording == false {
             Stop.isEnabled = true
@@ -205,13 +221,10 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         }
     }
     
-    
+    // 다음 버튼
     @IBAction func next(_ sender: Any) {
-       
         let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
-
         let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
-
         recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
         joseph = textView.text!
         print(joseph!)
@@ -226,12 +239,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         "http://192.168.11.179:8000/api/vi/ddobakis/",
             method: .post, parameters: parameters,
             encoding: JSONEncoding.default)
-        
-       
-        
-        
-        
-        
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -249,18 +256,11 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     }
     
     
-    // camera
+    // 카메라 세팅
     func setupLivePreview() {
-        
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
         videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.connection?.videoOrientation = .portrait
         previewView.layer.addSublayer(videoPreviewLayer)
-        
-        //Step12
     }
-    
-    
-    
 }
