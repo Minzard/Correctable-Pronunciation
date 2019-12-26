@@ -18,7 +18,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
-    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var previewView: UIView!
     var captureSession: AVCaptureSession!
@@ -98,47 +97,21 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.videoView.bounds
-        
+        playerLayer.videoGravity = .resizeAspectFill
         self.videoView.layer.addSublayer(playerLayer)
         
         player.play()
         
     }
     override func viewDidLoad() {
-        //생성한 콘텍스트의 정보를 가져온다.
-//        let context = UIGraphicsGetCurrentContext()!
-//        
-//        //선굵기 설정
-//        context.setLineWidth(2.0)
-//        //선 칼라 설정
-//        context.setStrokeColor(UIColor.red.cgColor)
-//        //시작위치로 커서 이동
-//        context.move(to: CGPoint(x:50, y:50))
-//        context.addLine(to: CGPoint(x:250, y:250))
-//        context.strokePath()
-//        
-//        
-//        //삼각형 그리기
-//        context.setLineWidth(4.0)
-//        context.setStrokeColor(UIColor.blue.cgColor)
-//        context.move(to: CGPoint(x:150, y:200))
-//        context.addLine(to: CGPoint(x:250, y:350))
-//        context.addLine(to: CGPoint(x:50, y:350))
-//        context.addLine(to: CGPoint(x:150, y:200))
-//        context.strokePath()
-        
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
         super.viewDidLoad()
-        let imageName = "이아썸네일.png"
+        let imageName = "아어썸네일2.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: 145, height: 154)
-    
+        imageView.frame = self.videoView.bounds
+        
         self.videoView.addSubview(imageView)
-        //Imageview on Top of View
-        self.videoView.bringSubviewToFront(imageView)
+        
         
         
         nextButton.isHidden = true
@@ -148,10 +121,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         button.layer.cornerRadius = 8
         nextButton.layer.cornerRadius = 8
         
-//        myView.layer.borderWidth = 2.5
-//        myView.layer.borderColor = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1).cgColor
-//        myView.layer.cornerRadius = 6
-
         
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
@@ -192,10 +161,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         }
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        
-    }
+    
 
     @IBAction func Recordudio(_ sender: Any) {
         if audioRecorder?.isRecording == false {
@@ -260,7 +226,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         "http://192.168.11.179:8000/api/vi/ddobakis/",
             method: .post, parameters: parameters,
             encoding: JSONEncoding.default)
-        UIGraphicsBeginImageContext(imageView.frame.size)
+        
        
         
         
