@@ -231,12 +231,12 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         
         let parameters: Parameters = [
             "user": "차요셉",
-            "label": "아어",
+            "label": "아",
             "stt": joseph!
         ]
 
         Alamofire.request(
-        "http://192.168.11.179:8000/api/vi/ddobakis/",
+            "http://ec2-15-164-228-174.ap-northeast-2.compute.amazonaws.com:8080/api/vi/ddobakis/",
             method: .post, parameters: parameters,
             encoding: JSONEncoding.default)
     }
