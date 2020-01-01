@@ -33,12 +33,13 @@ class MeanLessViewController2: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.progressView.value=0
         myView.layer.borderWidth = 2.5
         myView.layer.borderColor = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1).cgColor
         myView.layer.cornerRadius = 6
-
+        sleep(2)
                 Alamofire.request(
                     "http://ec2-15-164-228-174.ap-northeast-2.compute.amazonaws.com:8080/api/vi/ddobakis/").responseJSON { response in
                     print("Result: \(response.result)")                         // response serialization result
@@ -71,8 +72,8 @@ class MeanLessViewController2: UIViewController {
                         
                         self.firstView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 0)])
                         self.secondView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 1)])
-        //                self.thirdView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 2)])
-                        self.fourthView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 2)])
+                        self.thirdView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 2)])
+//                        self.fourthView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 2)])
 //                        self.fifthView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 3)])
         //                self.sixthView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 5)])
                         
@@ -84,13 +85,13 @@ class MeanLessViewController2: UIViewController {
                             self.secondView.textColor = UIColor.red
                         } else {self.secondView.textColor = UIColor.black}
                         
-        //                if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 2)] == "0") {
-        //                    self.thirdView.textColor = UIColor.red
-        //                } else {self.thirdView.textColor = UIColor.black}
-                        
                         if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 2)] == "0") {
-                            self.fourthView.textColor = UIColor.red
-                        } else {self.fourthView.textColor = UIColor.black}
+                            self.thirdView.textColor = UIColor.red
+                        } else {self.thirdView.textColor = UIColor.black}
+                        
+//                        if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 2)] == "0") {
+//                            self.fourthView.textColor = UIColor.red
+//                        } else {self.fourthView.textColor = UIColor.black}
                         
 //                        if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 4)] == "0") {
 //                            self.fifthView.textColor = UIColor.red
@@ -108,5 +109,8 @@ class MeanLessViewController2: UIViewController {
                     
                 }
     }
+    
+    
+  
     
 }

@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2303401B23BA1B000074EC60 /* MeanLessViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303401A23BA1B000074EC60 /* MeanLessViewController5.swift */; };
 		2309A77E2300CFC5002FAFE1 /* 아어.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2309A77B2300CA07002FAFE1 /* 아어.mp4 */; };
 		2386254423B48DE8006CBBFD /* 아어썸네일2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2386254323B48DE8006CBBFD /* 아어썸네일2.png */; };
 		2386254623B492BF006CBBFD /* 아어썸네일3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2386254523B492BF006CBBFD /* 아어썸네일3.png */; };
+		2395A53123BCB25E004B6C96 /* MeanLessViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */; };
 		2395FDA1234F2B80004DA943 /* MeaningLessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FDA0234F2B80004DA943 /* MeaningLessTableViewController.swift */; };
 		2395FDA3235088EF004DA943 /* MinimumpairTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FDA2235088EF004DA943 /* MinimumpairTableViewController.swift */; };
 		2395FDA523508ACD004DA943 /* MeaningFulWordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FDA423508ACD004DA943 /* MeaningFulWordTableViewController.swift */; };
 		2395FDA723508B83004DA943 /* DoubleVowelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FDA623508B83004DA943 /* DoubleVowelTableViewController.swift */; };
+		23A31B3923BA12B80038D402 /* MeanLessViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31B3823BA12B80038D402 /* MeanLessViewController3.swift */; };
 		23D35ABA22F8F5920099ABE3 /* Graph View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35AB922F8F5920099ABE3 /* Graph View.swift */; };
 		23D35ABC22F8F6CB0099ABE3 /* Counter View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */; };
-		23D4AD0D230038C200D9219C /* 시영.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 23D4AD0C230038C200D9219C /* 시영.mp4 */; };
 		44DAFCA7D9A01279108917E7 /* Pods_Test3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9198BE2C5E43DC626F5AB1 /* Pods_Test3.framework */; };
 		7C55E083225BAF040003B099 /* 또바기.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C55E082225BAF040003B099 /* 또바기.png */; };
 		7C65D772224A31A900361252 /* TestTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D771224A31A900361252 /* TestTableTableViewController.swift */; };
@@ -34,16 +36,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2303401A23BA1B000074EC60 /* MeanLessViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController5.swift; sourceTree = "<group>"; };
 		2309A77B2300CA07002FAFE1 /* 아어.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "아어.mp4"; sourceTree = SOURCE_ROOT; };
 		2386254323B48DE8006CBBFD /* 아어썸네일2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아어썸네일2.png"; sourceTree = SOURCE_ROOT; };
 		2386254523B492BF006CBBFD /* 아어썸네일3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아어썸네일3.png"; sourceTree = SOURCE_ROOT; };
+		2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController7.swift; sourceTree = "<group>"; };
 		2395FDA0234F2B80004DA943 /* MeaningLessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningLessTableViewController.swift; sourceTree = "<group>"; };
 		2395FDA2235088EF004DA943 /* MinimumpairTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimumpairTableViewController.swift; sourceTree = "<group>"; };
 		2395FDA423508ACD004DA943 /* MeaningFulWordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningFulWordTableViewController.swift; sourceTree = "<group>"; };
 		2395FDA623508B83004DA943 /* DoubleVowelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleVowelTableViewController.swift; sourceTree = "<group>"; };
+		23A31B3823BA12B80038D402 /* MeanLessViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController3.swift; sourceTree = "<group>"; };
 		23D35AB922F8F5920099ABE3 /* Graph View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph View.swift"; sourceTree = "<group>"; };
 		23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter View.swift"; sourceTree = "<group>"; };
-		23D4AD0C230038C200D9219C /* 시영.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "시영.mp4"; sourceTree = SOURCE_ROOT; };
 		5614E3D1E8ACE38FCF2E2DD5 /* Pods-Test3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test3.debug.xcconfig"; path = "Target Support Files/Pods-Test3/Pods-Test3.debug.xcconfig"; sourceTree = "<group>"; };
 		7C55E082225BAF040003B099 /* 또바기.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "또바기.png"; sourceTree = "<group>"; };
 		7C65D771224A31A900361252 /* TestTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableTableViewController.swift; sourceTree = "<group>"; };
@@ -117,10 +121,12 @@
 				2386254523B492BF006CBBFD /* 아어썸네일3.png */,
 				7CA83A1022416F0700F9AC8A /* Info.plist */,
 				7C8E54B522417AF8001F52C8 /* GoogleService-Info.plist */,
-				23D4AD0C230038C200D9219C /* 시영.mp4 */,
 				2309A77B2300CA07002FAFE1 /* 아어.mp4 */,
+				2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */,
 				7CC3D573225267B2001F3380 /* MeanLessViewController.swift */,
+				2303401A23BA1B000074EC60 /* MeanLessViewController5.swift */,
 				7C8A651A225B5C9800C9E1D4 /* MeanLessViewController2.swift */,
+				23A31B3823BA12B80038D402 /* MeanLessViewController3.swift */,
 				7C67F20122649817006A66F4 /* LaunchScreen.storyboard */,
 				7CA4B57B2250A47D00D75715 /* HistoryController.swift */,
 				23D35AB922F8F5920099ABE3 /* Graph View.swift */,
@@ -211,7 +217,6 @@
 				7C67F20222649817006A66F4 /* LaunchScreen.storyboard in Resources */,
 				2309A77E2300CFC5002FAFE1 /* 아어.mp4 in Resources */,
 				7CA83A0C22416F0700F9AC8A /* Assets.xcassets in Resources */,
-				23D4AD0D230038C200D9219C /* 시영.mp4 in Resources */,
 				7CA83A0A22416F0600F9AC8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,10 +313,13 @@
 				2395FDA3235088EF004DA943 /* MinimumpairTableViewController.swift in Sources */,
 				2395FDA723508B83004DA943 /* DoubleVowelTableViewController.swift in Sources */,
 				7CA83A0722416F0600F9AC8A /* ViewController.swift in Sources */,
+				23A31B3923BA12B80038D402 /* MeanLessViewController3.swift in Sources */,
 				23D35ABA22F8F5920099ABE3 /* Graph View.swift in Sources */,
+				2395A53123BCB25E004B6C96 /* MeanLessViewController7.swift in Sources */,
 				7CA83A0522416F0600F9AC8A /* AppDelegate.swift in Sources */,
 				7C8A651B225B5C9800C9E1D4 /* MeanLessViewController2.swift in Sources */,
 				7CA4B57C2250A47D00D75715 /* HistoryController.swift in Sources */,
+				2303401B23BA1B000074EC60 /* MeanLessViewController5.swift in Sources */,
 				2395FDA1234F2B80004DA943 /* MeaningLessTableViewController.swift in Sources */,
 				23D35ABC22F8F6CB0099ABE3 /* Counter View.swift in Sources */,
 				7CC3D574225267B2001F3380 /* MeanLessViewController.swift in Sources */,
