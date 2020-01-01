@@ -599,15 +599,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="무의미음절" id="x1W-PI-gOe">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="PfD-9u-6UG">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QJ9-ff-zmn">
-                                                <rect key="frame" x="276" y="13" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Done"/>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="무의미음절" id="x1W-PI-gOe"/>
                                 </items>
                             </navigationBar>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH6-fz-74j">
@@ -1050,6 +1042,7 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="r0i-uO-xRk" eventType="touchUpInside" id="5v5-T6-TTy"/>
+                                    <segue destination="I38-2N-sbQ" kind="show" id="Vep-17-bCc"/>
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEA-Vb-LZb">
@@ -1128,7 +1121,7 @@
             <objects>
                 <viewController id="roD-41-Lij" userLabel="무의미음절7" customClass="MeanLessViewController7" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LuV-xq-EKs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hgo-fE-WQo">
@@ -1181,6 +1174,7 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="roD-41-Lij" eventType="touchUpInside" id="TuY-Wj-kPf"/>
+                                    <segue destination="VaO-jL-KX2" kind="show" id="iCn-sy-pQZ"/>
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bly-UN-xtP">
@@ -1218,7 +1212,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="우" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3p-0n-pzU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="어" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3p-0n-pzU">
                                         <rect key="frame" x="98" y="36" width="51" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="50"/>
@@ -1259,7 +1253,7 @@
             <objects>
                 <viewController id="n9p-iF-CgV" customClass="MeanLessViewController5" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ID4-Le-Xsi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mtb-vT-tH5">
@@ -1312,6 +1306,7 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="n9p-iF-CgV" eventType="touchUpInside" id="kis-EZ-hlZ"/>
+                                    <segue destination="b4P-eh-lBN" kind="show" id="fmw-Ys-bDi"/>
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qup-eh-Doo">
@@ -1349,7 +1344,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="어" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoH-XW-c2S">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="우" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoH-XW-c2S">
                                         <rect key="frame" x="98" y="36" width="51" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="50"/>
@@ -1385,16 +1380,16 @@
             </objects>
             <point key="canvasLocation" x="8298" y="-215"/>
         </scene>
-        <!--Mean Less View Controller2-->
+        <!--Mean Less View Controller4-->
         <scene sceneID="4V0-En-aXh">
             <objects>
-                <viewController id="I38-2N-sbQ" customClass="MeanLessViewController2" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I38-2N-sbQ" customClass="MeanLessViewController4" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8yQ-Ka-XfS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OL6-8W-6hq">
-                                <rect key="frame" x="42" y="106" width="290" height="190"/>
+                                <rect key="frame" x="42" y="107" width="290" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅇㅣ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5P-iW-Quo">
@@ -1438,15 +1433,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="무의미음절" id="iK4-N4-E6b">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="t1f-Y5-brz">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WsB-9H-AsQ">
-                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Done"/>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="무의미음절" id="iK4-N4-E6b"/>
                                 </items>
                             </navigationBar>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raH-xd-JjD">
@@ -1457,6 +1444,9 @@
                                 <state key="normal" title="다음">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="n9p-iF-CgV" kind="show" id="6dj-Va-BIo"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zky-eu-vtB" customClass="MBCircularProgressBarView">
                                 <rect key="frame" x="89" y="327" width="197" height="184"/>
@@ -1500,24 +1490,31 @@
                         <viewLayoutGuide key="safeArea" id="VMV-wj-Ja7"/>
                     </view>
                     <navigationItem key="navigationItem" id="azw-5O-CZ8"/>
+                    <connections>
+                        <outlet property="firstView" destination="jsT-XD-U5I" id="sKY-cP-ie4"/>
+                        <outlet property="myView" destination="OL6-8W-6hq" id="PcX-Ka-q9o"/>
+                        <outlet property="progressView" destination="zky-eu-vtB" id="1aB-zA-4IE"/>
+                        <outlet property="secondView" destination="DoD-wc-5Gj" id="5fq-sj-sVV"/>
+                        <outlet property="thirdView" destination="vZw-mG-3fp" id="BfQ-tp-245"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9B-qk-Xh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7320.8000000000002" y="-233.43328335832086"/>
         </scene>
-        <!--Mean Less View Controller2-->
+        <!--Mean Less View Controller6-->
         <scene sceneID="LHM-qF-bLT">
             <objects>
-                <viewController id="b4P-eh-lBN" customClass="MeanLessViewController2" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="b4P-eh-lBN" customClass="MeanLessViewController6" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O79-cq-VVR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbB-PM-m4c">
                                 <rect key="frame" x="42" y="106" width="290" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅇㅣ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCg-lH-qNT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅇㅜ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCg-lH-qNT">
                                         <rect key="frame" x="92" y="0.0" width="114" height="102"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="50"/>
@@ -1535,7 +1532,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅣ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cS-wi-s2m">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅜ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cS-wi-s2m">
                                                 <rect key="frame" x="61" y="20" width="44" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="50"/>
@@ -1558,15 +1555,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="무의미음절" id="EQe-sM-exj">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Nt5-eL-CA4">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0FG-Ue-a4M">
-                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Done"/>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="무의미음절" id="EQe-sM-exj"/>
                                 </items>
                             </navigationBar>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBe-eQ-glW">
@@ -1577,6 +1566,9 @@
                                 <state key="normal" title="다음">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="roD-41-Lij" kind="show" id="w8X-8j-v5a"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PpL-h1-dJu" customClass="MBCircularProgressBarView">
                                 <rect key="frame" x="89" y="327" width="197" height="184"/>
@@ -1620,24 +1612,31 @@
                         <viewLayoutGuide key="safeArea" id="f3c-LB-7vA"/>
                     </view>
                     <navigationItem key="navigationItem" id="Yt7-0S-yHE"/>
+                    <connections>
+                        <outlet property="firstView" destination="Kuo-7t-hNz" id="IoO-eU-j6e"/>
+                        <outlet property="myView" destination="xbB-PM-m4c" id="nJo-Q4-tJg"/>
+                        <outlet property="progressView" destination="PpL-h1-dJu" id="Vhm-JD-4bD"/>
+                        <outlet property="secondView" destination="4cS-wi-s2m" id="Kh2-Fv-W0D"/>
+                        <outlet property="thirdView" destination="dNy-v4-vqw" id="X1k-SU-19y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFP-t6-eNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8937" y="-215"/>
+            <point key="canvasLocation" x="9030" y="-215"/>
         </scene>
-        <!--Mean Less View Controller2-->
+        <!--Mean Less View Controller8-->
         <scene sceneID="Mig-hm-rkQ">
             <objects>
-                <viewController id="VaO-jL-KX2" customClass="MeanLessViewController2" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VaO-jL-KX2" customClass="MeanLessViewController8" customModule="Test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cyF-JA-lLB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SwP-sl-Yrr">
                                 <rect key="frame" x="42" y="106" width="290" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅇㅣ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDa-8d-eBs">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅇㅓ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDa-8d-eBs">
                                         <rect key="frame" x="92" y="0.0" width="114" height="102"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="50"/>
@@ -1661,8 +1660,8 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="50"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅜ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWe-zF-POS">
-                                                <rect key="frame" x="62" y="8" width="44" height="60"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅓ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWe-zF-POS">
+                                                <rect key="frame" x="62" y="21" width="44" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="50"/>
                                                 <nil key="highlightedColor"/>
@@ -1681,23 +1680,17 @@
                                     <navigationItem title="무의미음절" id="4bU-85-r4N">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="SJd-FF-Agy">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WH8-rK-IN4">
-                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <rect key="frame" x="276" y="13" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="dismissModal:" destination="VaO-jL-KX2" eventType="touchUpInside" id="Hb0-7f-REs"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-Vm-y7Z">
-                                <rect key="frame" x="0.0" y="544" width="375" height="103"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.54901960780000003" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
-                                <state key="normal" title="다음">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nit-yE-ka2" customClass="MBCircularProgressBarView">
                                 <rect key="frame" x="89" y="327" width="197" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1740,6 +1733,13 @@
                         <viewLayoutGuide key="safeArea" id="45m-1h-qOo"/>
                     </view>
                     <navigationItem key="navigationItem" id="XkF-yo-unG"/>
+                    <connections>
+                        <outlet property="firstView" destination="SGe-jF-bFp" id="cjS-UE-79J"/>
+                        <outlet property="myView" destination="SwP-sl-Yrr" id="A5k-eS-gQH"/>
+                        <outlet property="progressView" destination="Nit-yE-ka2" id="0yf-GP-fNc"/>
+                        <outlet property="secondView" destination="yWe-zF-POS" id="Ojg-jF-Fr8"/>
+                        <outlet property="thirdView" destination="4DA-A9-z8V" id="9eI-gn-lLB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ofc-su-GdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

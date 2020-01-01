@@ -55,7 +55,7 @@ class MeanLessViewController2: UIViewController {
                         var asdf = jsonArray[jsonArray.index(before: jsonArray.endIndex)]
                         
                  //-----------------------------------------------------/
-                        self.dstt=(asdf["divided_stt"]! as! String)
+                        self.dstt=(asdf["divided_stt"]! as! String)+" "
                         
                         
                         var DSTT = self.dstt!
@@ -72,6 +72,9 @@ class MeanLessViewController2: UIViewController {
                         
                         self.firstView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 0)])
                         self.secondView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 1)])
+                            self.thirdView.text = String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 2)])
+                        
+                        
                         self.thirdView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 2)])
 //                        self.fourthView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 2)])
 //                        self.fifthView.text=String(DSTT[DSTT.index(DSTT.startIndex, offsetBy: 3)])

@@ -12,6 +12,9 @@
 		2386254423B48DE8006CBBFD /* 아어썸네일2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2386254323B48DE8006CBBFD /* 아어썸네일2.png */; };
 		2386254623B492BF006CBBFD /* 아어썸네일3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2386254523B492BF006CBBFD /* 아어썸네일3.png */; };
 		2395A53123BCB25E004B6C96 /* MeanLessViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */; };
+		2395A53323BCBAC3004B6C96 /* MeanLessViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395A53223BCBAC3004B6C96 /* MeanLessViewController4.swift */; };
+		2395A53523BCBACF004B6C96 /* MeanLessViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395A53423BCBACF004B6C96 /* MeanLessViewController6.swift */; };
+		2395A53723BCBAF0004B6C96 /* MeanLessViewController8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395A53623BCBAF0004B6C96 /* MeanLessViewController8.swift */; };
 		2395FDA1234F2B80004DA943 /* MeaningLessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FDA0234F2B80004DA943 /* MeaningLessTableViewController.swift */; };
 		2395FDA3235088EF004DA943 /* MinimumpairTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FDA2235088EF004DA943 /* MinimumpairTableViewController.swift */; };
 		2395FDA523508ACD004DA943 /* MeaningFulWordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FDA423508ACD004DA943 /* MeaningFulWordTableViewController.swift */; };
@@ -41,6 +44,9 @@
 		2386254323B48DE8006CBBFD /* 아어썸네일2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아어썸네일2.png"; sourceTree = SOURCE_ROOT; };
 		2386254523B492BF006CBBFD /* 아어썸네일3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아어썸네일3.png"; sourceTree = SOURCE_ROOT; };
 		2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController7.swift; sourceTree = "<group>"; };
+		2395A53223BCBAC3004B6C96 /* MeanLessViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController4.swift; sourceTree = "<group>"; };
+		2395A53423BCBACF004B6C96 /* MeanLessViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController6.swift; sourceTree = "<group>"; };
+		2395A53623BCBAF0004B6C96 /* MeanLessViewController8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController8.swift; sourceTree = "<group>"; };
 		2395FDA0234F2B80004DA943 /* MeaningLessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningLessTableViewController.swift; sourceTree = "<group>"; };
 		2395FDA2235088EF004DA943 /* MinimumpairTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimumpairTableViewController.swift; sourceTree = "<group>"; };
 		2395FDA423508ACD004DA943 /* MeaningFulWordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningFulWordTableViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 				7CA83A1022416F0700F9AC8A /* Info.plist */,
 				7C8E54B522417AF8001F52C8 /* GoogleService-Info.plist */,
 				2309A77B2300CA07002FAFE1 /* 아어.mp4 */,
+				2395A53223BCBAC3004B6C96 /* MeanLessViewController4.swift */,
+				2395A53423BCBACF004B6C96 /* MeanLessViewController6.swift */,
+				2395A53623BCBAF0004B6C96 /* MeanLessViewController8.swift */,
 				2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */,
 				7CC3D573225267B2001F3380 /* MeanLessViewController.swift */,
 				2303401A23BA1B000074EC60 /* MeanLessViewController5.swift */,
@@ -314,10 +323,13 @@
 				2395FDA723508B83004DA943 /* DoubleVowelTableViewController.swift in Sources */,
 				7CA83A0722416F0600F9AC8A /* ViewController.swift in Sources */,
 				23A31B3923BA12B80038D402 /* MeanLessViewController3.swift in Sources */,
+				2395A53523BCBACF004B6C96 /* MeanLessViewController6.swift in Sources */,
 				23D35ABA22F8F5920099ABE3 /* Graph View.swift in Sources */,
 				2395A53123BCB25E004B6C96 /* MeanLessViewController7.swift in Sources */,
 				7CA83A0522416F0600F9AC8A /* AppDelegate.swift in Sources */,
+				2395A53723BCBAF0004B6C96 /* MeanLessViewController8.swift in Sources */,
 				7C8A651B225B5C9800C9E1D4 /* MeanLessViewController2.swift in Sources */,
+				2395A53323BCBAC3004B6C96 /* MeanLessViewController4.swift in Sources */,
 				7CA4B57C2250A47D00D75715 /* HistoryController.swift in Sources */,
 				2303401B23BA1B000074EC60 /* MeanLessViewController5.swift in Sources */,
 				2395FDA1234F2B80004DA943 /* MeaningLessTableViewController.swift in Sources */,

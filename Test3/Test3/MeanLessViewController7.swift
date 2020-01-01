@@ -151,7 +151,6 @@ class MeanLessViewController7: UIViewController, SFSpeechRecognizerDelegate, AVA
     
    
     
-    
     @IBAction func VideoClick(_ sender: Any) {
         guard let path = Bundle.main.path(forResource: "아어", ofType:"mp4") else {            debugPrint("video.m4v not found")
             return
@@ -167,7 +166,7 @@ class MeanLessViewController7: UIViewController, SFSpeechRecognizerDelegate, AVA
         
         videoView.layer.cornerRadius = 6
     }
-    
+
     
     @IBAction func Recordudio(_ sender: Any) {
         if audioRecorder?.isRecording == false {
@@ -195,12 +194,9 @@ class MeanLessViewController7: UIViewController, SFSpeechRecognizerDelegate, AVA
         recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
         joseph = textView.text!
         print(joseph!)
-        
     }
     
     // 재생 버튼
-    
-    
     @IBAction func PlayAudio(_ sender: Any) {
         if audioRecorder?.isRecording == false {
             Stop.isEnabled = true
@@ -210,6 +206,7 @@ class MeanLessViewController7: UIViewController, SFSpeechRecognizerDelegate, AVA
                 audioPlayer!.delegate=self
                 audioPlayer!.prepareToPlay()
                 audioPlayer!.play()
+                
             } catch let error as NSError {
                 print("audioSession error: \(error.localizedDescription)")
             }
@@ -227,7 +224,7 @@ class MeanLessViewController7: UIViewController, SFSpeechRecognizerDelegate, AVA
         
         let parameters: Parameters = [
             "user": "차요셉",
-            "label": "아",
+            "label": "어",
             "stt": joseph!
         ]
 

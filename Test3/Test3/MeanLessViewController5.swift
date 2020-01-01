@@ -149,8 +149,8 @@ class MeanLessViewController5: UIViewController, SFSpeechRecognizerDelegate, AVA
         
     }
     
+    
     @IBAction func videoClick(_ sender: Any) {
-        
         guard let path = Bundle.main.path(forResource: "아어", ofType:"mp4") else {
         debugPrint("video.m4v not found")
         return
@@ -167,15 +167,13 @@ class MeanLessViewController5: UIViewController, SFSpeechRecognizerDelegate, AVA
     videoView.layer.cornerRadius = 6
     }
     
-    
-    
     @IBAction func recordAudio(_ sender: Any) {
         if audioRecorder?.isRecording == false {
             Stop.isHidden = false
             audioRecorder?.record()
         }
+        
     }
-    
     // 멈춤 버튼
     
     @IBAction func StopAudio(_ sender: Any) {
@@ -225,7 +223,7 @@ class MeanLessViewController5: UIViewController, SFSpeechRecognizerDelegate, AVA
         
         let parameters: Parameters = [
             "user": "차요셉",
-            "label": "어",
+            "label": "우",
             "stt": joseph!
         ]
 

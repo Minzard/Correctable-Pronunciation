@@ -227,7 +227,7 @@ class MeanLessViewController3: UIViewController, SFSpeechRecognizerDelegate, AVA
         
         let parameters: Parameters = [
             "user": "차요셉",
-            "label": "아",
+            "label": "이",
             "stt": joseph!
         ]
 
