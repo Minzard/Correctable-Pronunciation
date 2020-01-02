@@ -24,13 +24,6 @@ class MeanLessViewController2: UIViewController {
     @IBOutlet weak var fifthView: UILabel!
     @IBOutlet weak var sixthView: UILabel!
     
-
-    
-    @IBAction func dismissModal(_ sender: Any) {
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        
-//    self.dismiss(animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         
