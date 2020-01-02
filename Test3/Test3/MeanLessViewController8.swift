@@ -27,9 +27,8 @@ class MeanLessViewController8: UIViewController {
     
     
     @IBAction func dismissModal(_ sender: Any) {
-            self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-            
-    //    self.dismiss(animated: true, completion: nil)
+        // presentmodal의 rootView로 dismiss
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
         }
         
         override func viewDidLoad() {
