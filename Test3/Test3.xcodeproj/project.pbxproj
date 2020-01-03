@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2303401B23BA1B000074EC60 /* MeanLessViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303401A23BA1B000074EC60 /* MeanLessViewController5.swift */; };
 		2309A77E2300CFC5002FAFE1 /* 아어.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2309A77B2300CA07002FAFE1 /* 아어.mp4 */; };
+		231B050C23BEFF6C00F01ECE /* 어어.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 231B050723BEFF6C00F01ECE /* 어어.MOV */; };
+		231B050D23BEFF6C00F01ECE /* 우우.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 231B050823BEFF6C00F01ECE /* 우우.MOV */; };
+		231B050E23BEFF6C00F01ECE /* 이이.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 231B050923BEFF6C00F01ECE /* 이이.MOV */; };
+		231B050F23BEFF6C00F01ECE /* 사과.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 231B050A23BEFF6C00F01ECE /* 사과.MOV */; };
+		231B051023BEFF6C00F01ECE /* 아아.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 231B050B23BEFF6C00F01ECE /* 아아.MOV */; };
+		231B051223BF008B00F01ECE /* 썸네일.png in Resources */ = {isa = PBXBuildFile; fileRef = 231B051123BF008B00F01ECE /* 썸네일.png */; };
 		2386254423B48DE8006CBBFD /* 아어썸네일2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2386254323B48DE8006CBBFD /* 아어썸네일2.png */; };
 		2386254623B492BF006CBBFD /* 아어썸네일3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2386254523B492BF006CBBFD /* 아어썸네일3.png */; };
 		2395A53123BCB25E004B6C96 /* MeanLessViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */; };
@@ -43,6 +49,12 @@
 /* Begin PBXFileReference section */
 		2303401A23BA1B000074EC60 /* MeanLessViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController5.swift; sourceTree = "<group>"; };
 		2309A77B2300CA07002FAFE1 /* 아어.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "아어.mp4"; sourceTree = SOURCE_ROOT; };
+		231B050723BEFF6C00F01ECE /* 어어.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "어어.MOV"; sourceTree = SOURCE_ROOT; };
+		231B050823BEFF6C00F01ECE /* 우우.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "우우.MOV"; sourceTree = SOURCE_ROOT; };
+		231B050923BEFF6C00F01ECE /* 이이.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "이이.MOV"; sourceTree = SOURCE_ROOT; };
+		231B050A23BEFF6C00F01ECE /* 사과.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "사과.MOV"; sourceTree = SOURCE_ROOT; };
+		231B050B23BEFF6C00F01ECE /* 아아.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "아아.MOV"; sourceTree = SOURCE_ROOT; };
+		231B051123BF008B00F01ECE /* 썸네일.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "썸네일.png"; sourceTree = SOURCE_ROOT; };
 		2386254323B48DE8006CBBFD /* 아어썸네일2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아어썸네일2.png"; sourceTree = SOURCE_ROOT; };
 		2386254523B492BF006CBBFD /* 아어썸네일3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아어썸네일3.png"; sourceTree = SOURCE_ROOT; };
 		2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeanLessViewController7.swift; sourceTree = "<group>"; };
@@ -135,6 +147,12 @@
 				2395A53223BCBAC3004B6C96 /* MeanLessViewController4.swift */,
 				2395A53423BCBACF004B6C96 /* MeanLessViewController6.swift */,
 				2395A53623BCBAF0004B6C96 /* MeanLessViewController8.swift */,
+				231B050A23BEFF6C00F01ECE /* 사과.MOV */,
+				231B050B23BEFF6C00F01ECE /* 아아.MOV */,
+				231B051123BF008B00F01ECE /* 썸네일.png */,
+				231B050723BEFF6C00F01ECE /* 어어.MOV */,
+				231B050823BEFF6C00F01ECE /* 우우.MOV */,
+				231B050923BEFF6C00F01ECE /* 이이.MOV */,
 				2395A53023BCB25E004B6C96 /* MeanLessViewController7.swift */,
 				7CC3D573225267B2001F3380 /* MeanLessViewController.swift */,
 				2303401A23BA1B000074EC60 /* MeanLessViewController5.swift */,
@@ -224,12 +242,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231B050E23BEFF6C00F01ECE /* 이이.MOV in Resources */,
 				7C683FBA225D95FD004F2572 /* 그림1.png in Resources */,
+				231B050F23BEFF6C00F01ECE /* 사과.MOV in Resources */,
 				2386254423B48DE8006CBBFD /* 아어썸네일2.png in Resources */,
 				7C55E083225BAF040003B099 /* 또바기.png in Resources */,
 				7C8E54B622417AF8001F52C8 /* GoogleService-Info.plist in Resources */,
+				231B050C23BEFF6C00F01ECE /* 어어.MOV in Resources */,
 				2386254623B492BF006CBBFD /* 아어썸네일3.png in Resources */,
+				231B051223BF008B00F01ECE /* 썸네일.png in Resources */,
+				231B050D23BEFF6C00F01ECE /* 우우.MOV in Resources */,
 				7C67F20222649817006A66F4 /* LaunchScreen.storyboard in Resources */,
+				231B051023BEFF6C00F01ECE /* 아아.MOV in Resources */,
 				2309A77E2300CFC5002FAFE1 /* 아어.mp4 in Resources */,
 				7CA83A0C22416F0700F9AC8A /* Assets.xcassets in Resources */,
 				7CA83A0A22416F0600F9AC8A /* Main.storyboard in Resources */,

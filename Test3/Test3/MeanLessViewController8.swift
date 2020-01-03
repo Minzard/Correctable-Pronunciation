@@ -78,15 +78,15 @@ class MeanLessViewController8: UIViewController {
                             
                             if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 0)] == "0") {
                                 self.firstView.textColor = UIColor.red
-                            } else {self.firstView.textColor = UIColor.black}
+                            } else {self.firstView.textColor = UIColor.systemGreen}
                             
                             if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 1)] == "0") {
                                 self.secondView.textColor = UIColor.red
-                            } else {self.secondView.textColor = UIColor.black}
+                            } else {self.secondView.textColor = UIColor.systemGreen}
                             
                             if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 2)] == "0") {
                                 self.thirdView.textColor = UIColor.red
-                            } else {self.thirdView.textColor = UIColor.black}
+                            } else {self.thirdView.textColor = UIColor.systemGreen}
                             
     //                        if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 2)] == "0") {
     //                            self.fourthView.textColor = UIColor.red

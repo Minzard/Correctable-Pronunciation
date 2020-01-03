@@ -104,7 +104,7 @@ class MeanLessViewController3: UIViewController, SFSpeechRecognizerDelegate, AVA
         wordView.layer.cornerRadius = 9
         
         // imageView 에 이미지 넣기
-        let imageName = "아어썸네일3.png"
+        let imageName = "썸네일.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
         imageView.frame = self.videoView.bounds
@@ -159,7 +159,7 @@ class MeanLessViewController3: UIViewController, SFSpeechRecognizerDelegate, AVA
     
 
     @IBAction func VideoClick(_ sender: Any) {
-        guard let path = Bundle.main.path(forResource: "아어", ofType:"mp4") else {
+        guard let path = Bundle.main.path(forResource: "이이", ofType:"MOV") else {
             debugPrint("video.m4v not found")
             return
         }

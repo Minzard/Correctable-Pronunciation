@@ -28,11 +28,10 @@ class MeaningFullViewController2: UIViewController {
     @IBOutlet weak var fifthView: UILabel!
     @IBOutlet weak var sixthView: UILabel!
     
-    @IBAction func disMissModal(_ sender: Any) {
-        // presentmodal의 rootView로 dismiss
-        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-    }
     
+    @IBAction func dismissModal(_ sender: Any) {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
             
@@ -57,7 +56,7 @@ class MeaningFullViewController2: UIViewController {
                             var asdf = jsonArray[jsonArray.index(before: jsonArray.endIndex)]
                             
                      //-----------------------------------------------------/
-                            self.dstt=(asdf["divided_stt"]! as! String)+"  "
+                            self.dstt=(asdf["divided_stt"]! as! String) + "          "
                             
                             
                             var DSTT = self.dstt!
@@ -81,27 +80,27 @@ class MeaningFullViewController2: UIViewController {
                             
                             if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 0)] == "0") {
                                 self.firstView.textColor = UIColor.red
-                            } else {self.firstView.textColor = UIColor.black}
+                            } else {self.firstView.textColor = UIColor.orange}
                             
                             if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 1)] == "0") {
                                 self.secondView.textColor = UIColor.red
-                            } else {self.secondView.textColor = UIColor.black}
+                            } else {self.secondView.textColor = UIColor.orange}
                             
 //                            if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 2)] == "0") {
 //                                self.thirdView.textColor = UIColor.red
 //                            } else {self.thirdView.textColor = UIColor.black}
                             
-                            if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 2)] == "0") {
-                                self.fourthView.textColor = UIColor.red
-                            } else {self.fourthView.textColor = UIColor.black}
-                            
                             if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 3)] == "0") {
-                                self.fifthView.textColor = UIColor.red
-                            } else {self.fifthView.textColor = UIColor.black}
+                                self.fourthView.textColor = UIColor.red
+                            } else {self.fourthView.textColor = UIColor.orange}
                             
                             if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 4)] == "0") {
+                                self.fifthView.textColor = UIColor.red
+                            } else {self.fifthView.textColor = UIColor.orange}
+                            
+                            if (COLOR[COLOR.index(COLOR.startIndex, offsetBy: 5)] == "0") {
                                 self.sixthView.textColor = UIColor.red
-                            } else {self.sixthView.textColor = UIColor.black}
+                            } else {self.sixthView.textColor = UIColor.orange}
                         
                             UIView.animate(withDuration: 4.0) {
                                 self.progressView.value=CGFloat(ACCURACY)
