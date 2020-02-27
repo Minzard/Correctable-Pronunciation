@@ -5,7 +5,7 @@ import Alamofire
 import AVKit
 
 class MeanLessViewController7: UIViewController, SFSpeechRecognizerDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
-
+    
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
     var player: AVPlayer!

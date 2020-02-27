@@ -108,7 +108,4 @@ class MeanLessViewController4: UIViewController {
                         
                     }
         }
-
-    
-
 }
