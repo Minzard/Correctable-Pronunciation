@@ -1,7 +1,7 @@
 # Correctable-Pronunciation
 ## Blues
 
-__This is application for dysarthria to improve their pronunciation by using deep learning
+This is application for dysarthria to improve their pronunciation by using deep learning
 by Siyoung Kim, Minje Kim, Hyunah jang, Joseph cha
 
 ### 0. 개요
@@ -24,7 +24,7 @@ by Siyoung Kim, Minje Kim, Hyunah jang, Joseph cha
 ------------------------------
  * 김시영 : 서버, DB 
  * 김민제 : ASR Model, 정확도 산출 알고리즘
- * 장현아 : 언어, 발음 교육, 애플리케이션 
+ * 장현아 : 언어, 발음 교육 
  * 차요셉 : 애플리케이션
 
 ### 3. 참고
