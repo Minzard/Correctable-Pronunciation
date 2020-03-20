@@ -25,10 +25,15 @@ by Siyoung Kim, Minje Kim, Hyunah jang, Joseph cha
  * 김시영 : 서버, DB 
  * 김민제 : ASR Model, 정확도 산출 알고리즘
  * 장현아 : 언어, 발음 교육 
- * 차요셉 : 애플리케이션
+ * 차요셉 : 애플리케이션(iOS)
 
 ### 3. 참고
 ------------------------------
  * Kaldi github : https://github.com/kaldi-asr/kaldi
  * Zeroth project github : https://github.com/goodatlas/zeroth
  * Python Korean Handler : https://github.com/neotune/python-korean-handler
+ 
+### 4. 공모전 수상
+------------------------------
+ * 한국소프트웨어종합학술대회 논문경진대회 : 최우수상 (한국정보과학회)
+ * 2019 프로보노 자율형II 공모전 : 입선상 (한국정보방송통신대연합회)
