@@ -10,27 +10,24 @@ import Firebase
 class ViewController: UIViewController { 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     @IBAction func signin(_ sender: Any) {
         
-        if (self.email.text == "") {
+        if self.email.text == "" {
             print("아이디가 입력되지 않았습니다")
             return
         }
         else {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (authResult, error) in
-            // ...
-            
-            if(error != nil) {
-                
-                
+            if error != nil {
                 Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) { [weak self] user, error in
-                    
-                    guard self != nil else { return }
-                    self!.performSegue(withIdentifier: "Home", sender: nil)
+                    guard let self = self else { return }
+                    self.performSegue(withIdentifier: "Home", sender: nil)
                 }
-                
-            }else {
+            }
+            else {
                 let alert = UIAlertController(title: "알림", message: "회원가입완료", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
@@ -38,8 +35,5 @@ class ViewController: UIViewController {
             }
         }
         }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }
