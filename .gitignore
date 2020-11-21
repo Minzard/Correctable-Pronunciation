@@ -6,7 +6,8 @@
 *.ko
 *.obj
 *.elf
-
+*.DS_Store
+.DS_Store
 # Linker output
 *.ilk
 *.map
@@ -51,8 +52,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Created by https://www.toptal.com/developers/gitignore/api/xcode,swift,objective-c
-# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift,objective-c
+# Created by https://www.toptal.com/developers/gitignore/api/xcode,objective-c,swift,swiftpackagemanager
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,objective-c,swift,swiftpackagemanager
 
 ### Objective-C ###
 # Xcode
@@ -69,8 +70,6 @@ xcuserdata/
 ## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
 build/
 DerivedData/
-*.DS_Store
-.DS_Store
 *.moved-aside
 *.pbxuser
 !default.pbxuser
@@ -176,6 +175,12 @@ Dependencies/
 # https://github.com/johnno1962/injectionforxcode
 
 
+### SwiftPackageManager ###
+Packages
+xcuserdata
+*.xcodeproj
+
+
 ### Xcode ###
 # Xcode
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
@@ -192,5 +197,10 @@ Dependencies/
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
-
-# End of https://www.toptal.com/developers/gitignore/api/xcode,swift,objective-c
+### SwiftPackageManager ###
+Packages
+.build/
+xcuserdata
+DerivedData/
+*.xcodeproj
+# End of https://www.toptal.com/developers/gitignore/api/xcode,objective-c,swift,swiftpackagemanager.DS_Store

@@ -197,5 +197,10 @@ xcuserdata
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
-
-# End of https://www.toptal.com/developers/gitignore/api/xcode,objective-c,swift,swiftpackagemanager
+### SwiftPackageManager ###
+Packages
+.build/
+xcuserdata
+DerivedData/
+*.xcodeproj
+# End of https://www.toptal.com/developers/gitignore/api/xcode,objective-c,swift,swiftpackagemanager.DS_Store

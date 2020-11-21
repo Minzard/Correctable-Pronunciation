@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'Test3' do
+target 'Correctable-Pronunciation' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 # Add the Firebase pod for Google Analytics
@@ -13,6 +13,6 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod "MBCircularProgressBar"
 pod 'Alamofire', '~> 4.7' 
-# Pods for Test3
+# Pods for Correctable-Pronunciation
 
 end
