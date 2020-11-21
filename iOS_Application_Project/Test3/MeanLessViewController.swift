@@ -12,7 +12,7 @@ import Speech
 import AVFoundation
 import Alamofire
 import AVKit
-import SwiftyJSON
+
 
 class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate{
     var audioPlayer: AVAudioPlayer?

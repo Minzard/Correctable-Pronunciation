@@ -1,0 +1,12 @@
+${PODS_ROOT}/Target Support Files/Pods-Test3/Pods-Test3-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
+${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
+${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework
+${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework
+${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
+${BUILT_PRODUCTS_DIR}/abseil/absl.framework
+${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework
+${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework
+${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework
+${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework

@@ -12,12 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import "Private/GULLogger.h"
+#if SWIFT_PACKAGE
+// Need to import the public header here, since the module won't exist yet.
+// Restructure the GULLogger headers for Firebase 7.
+#import "GoogleUtilities/Logger/Public/GULLoggerLevel.h"
+#endif
+
+#import "GoogleUtilities/Logger/Private/GULLogger.h"
 
 #include <asl.h>
 
-#import <GoogleUtilities/GULAppEnvironmentUtil.h>
-#import "Public/GULLoggerLevel.h"
+#import "GoogleUtilities/Environment/Private/GULAppEnvironmentUtil.h"
+#import "GoogleUtilities/Logger/Public/GULLoggerLevel.h"
 
 /// ASL client facility name used by GULLogger.
 const char *kGULLoggerASLClientFacilityName = "com.google.utilities.logger";
@@ -123,6 +129,7 @@ __attribute__((no_sanitize("thread"))) BOOL GULIsLoggableLevel(GULLoggerLevel lo
 #ifdef DEBUG
 void GULResetLogger() {
   sGULLoggerOnceToken = 0;
+  sGULLoggerDebugMode = NO;
 }
 
 aslclient getGULLoggerClient() {
@@ -161,10 +168,15 @@ void GULLogBasic(GULLoggerLevel level,
                                                                     range:messageCodeRange];
   NSCAssert(numberOfMatches == 1, @"Incorrect message code format.");
 #endif
-  NSString *logMsg = [[NSString alloc] initWithFormat:message arguments:args_ptr];
+  NSString *logMsg;
+  if (args_ptr == NULL) {
+    logMsg = message;
+  } else {
+    logMsg = [[NSString alloc] initWithFormat:message arguments:args_ptr];
+  }
   logMsg = [NSString stringWithFormat:@"%s - %@[%@] %@", sVersion, service, messageCode, logMsg];
   dispatch_async(sGULClientQueue, ^{
-    asl_log(sGULLoggerClient, NULL, level, "%s", logMsg.UTF8String);
+    asl_log(sGULLoggerClient, NULL, (int)level, "%s", logMsg.UTF8String);
   });
 }
 #pragma clang diagnostic pop
@@ -172,10 +184,10 @@ void GULLogBasic(GULLoggerLevel level,
 /**
  * Generates the logging functions using macros.
  *
- * Calling GULLogError(kGULLoggerCore, @"I-COR000001", @"Configure %@ failed.", @"blah") shows:
- * yyyy-mm-dd hh:mm:ss.SSS sender[PID] <Error> [{service}][I-COR000001] Configure blah failed.
- * Calling GULLogDebug(kGULLoggerCore, @"I-COR000001", @"Configure succeed.") shows:
- * yyyy-mm-dd hh:mm:ss.SSS sender[PID] <Debug> [{service}][I-COR000001] Configure succeed.
+ * Calling GULLogError({service}, @"I-XYZ000001", @"Configure %@ failed.", @"blah") shows:
+ * yyyy-mm-dd hh:mm:ss.SSS sender[PID] <Error> [{service}][I-XYZ000001] Configure blah failed.
+ * Calling GULLogDebug({service}, @"I-XYZ000001", @"Configure succeed.") shows:
+ * yyyy-mm-dd hh:mm:ss.SSS sender[PID] <Debug> [{service}][I-XYZ000001] Configure succeed.
  */
 #define GUL_LOGGING_FUNCTION(level)                                                     \
   void GULLog##level(GULLoggerService service, BOOL force, NSString *messageCode,       \

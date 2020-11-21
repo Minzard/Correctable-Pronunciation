@@ -10,7 +10,7 @@ import MBCircularProgressBar
 import AVFoundation
 import UIKit
 import Alamofire
-import SwiftyJSON
+
 
 class MeanLessViewController8: UIViewController {
     @IBOutlet weak var progressView: MBCircularProgressBarView!

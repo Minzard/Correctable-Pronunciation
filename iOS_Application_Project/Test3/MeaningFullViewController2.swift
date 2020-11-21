@@ -10,7 +10,7 @@ import MBCircularProgressBar
 import AVFoundation
 import UIKit
 import Alamofire
-import SwiftyJSON
+
 
 class MeaningFullViewController2: UIViewController {
 
