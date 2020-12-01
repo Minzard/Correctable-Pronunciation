@@ -55,7 +55,7 @@ class HistoryController: UIViewController {
         // 요일을 알파벳형식으로 포맷하는 과정 ex) S(sunday) M(Monday)
         let formatter = DateFormatter()
         formatter.setLocalizedDateFormatFromTemplate("EEEEE")
-        
+        formatter.locale = Locale(identifier: "ko")
         // 정렬된 라벨에 알파벳 형식의 요일을 삽입
         for i in 0...6 {
             if let date = calendar.date(byAdding: .day, value: +i, to: today),

@@ -100,12 +100,6 @@ class MeanLessViewController2: UIViewController {
                             self.progressView.value=CGFloat(ACCURACY)
                         }
                     }
-                    
-                    
                 }
     }
-    
-    
-  
-    
 }

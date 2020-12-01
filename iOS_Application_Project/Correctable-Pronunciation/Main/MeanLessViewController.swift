@@ -10,16 +10,13 @@
 import UIKit
 import Speech
 import AVFoundation
-import Alamofire
 import AVKit
-
 
 class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate{
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
     var player: AVPlayer!
     var avpController = AVPlayerViewController()
-    
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
@@ -32,14 +29,15 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var wordView: UIView!
-    
-    
     // 음성인식 설정
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     var joseph:String?
+    var accuracy: Int?
+    var colorCode: String?
+    var dividedSTT: String?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -56,7 +54,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                 print("Unable to access back camera!")
                 return
         }
-        
         do {
             let input = try AVCaptureDeviceInput(device: frontCamera)
             stillImageOutput = AVCapturePhotoOutput()
@@ -70,9 +67,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         catch let error  {
             print("Error Unable to initialize back camera:  \(error.localizedDescription)")
         }
-        
-        
-        
         DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
             self.captureSession.startRunning()
             //Step 13
@@ -86,31 +80,24 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
             self.previewView.clipsToBounds = true
         }
     }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // videoView's cornerRidus 설정
         self.videoView.layer.cornerRadius = 9
         self.videoView.clipsToBounds = true
-        
         // previewView's cornerRidus 설정
         self.previewView.layer.cornerRadius = 9
         self.previewView.clipsToBounds = true
-        
         // wordView 테두리 설정
         wordView.layer.borderWidth = 2
         wordView.layer.borderColor = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1).cgColor
         wordView.layer.cornerRadius = 9
-        
         // imageView 에 이미지 넣기
         let imageName = "썸네일.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
         imageView.frame = self.videoView.bounds
         self.videoView.addSubview(imageView)
-        
         // 버튼 UI 초기화
         nextButton.isHidden = true
         Play.isHidden = true
@@ -119,7 +106,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         nextButton.layer.cornerRadius = 9
         Play.layer.cornerRadius = 9
         Stop.layer.cornerRadius = 9
-        
         // 음성인식 델리게이트 설정
         speechRecognizer?.delegate = self
         // 녹음 설정
@@ -128,26 +114,20 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         //        let pathArray = [dirPath, recordingName]
         //        let filePath = URL(string: pathArray.joined(separator: "/"))
         let filepath = NSURL(fileURLWithPath: dirPath + "/" + recordingName)
-        
-        
         // 녹음 품질 설정
         let recordSettings = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
                               AVEncoderBitRateKey: 16,
                               AVNumberOfChannelsKey: 2,
                               AVSampleRateKey: 44100.0] as [String : Any]
-        
         // 공유 오디오 세션 인스턴스를 반환 받는다.
         let audioSession = AVAudioSession.sharedInstance()
         do {
             // 현재 오디오 세션의 카테고리를 정한다. (재생, 녹음)
             try audioSession.setCategory(.record, mode: .default, options: [])
             try audioSession.setCategory(.playAndRecord, mode: .default, options: [])
-            
-            
         } catch {
             print("audioSession error: \(error.localizedDescription)")
         }
-        
         // audioRecorder 인스턴스 생성
         do {
             try audioRecorder = AVAudioRecorder(url: filepath as URL, settings: recordSettings)
@@ -157,7 +137,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         }
         
     }
-    
     // 영상 재생 탭제츠처
     @IBAction func VideoClick(_ sender: Any) {
         guard let path = Bundle.main.path(forResource: "아아", ofType:"MOV") else {
@@ -175,7 +154,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         
         videoView.layer.cornerRadius = 6
     }
-    
     // 녹음 버튼
     @IBAction func Recordudio(_ sender: Any) {
         if audioRecorder?.isRecording == false {
@@ -183,7 +161,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
             audioRecorder?.record()
         }
     }
-    
     // 멈춤 버튼
     @IBAction func StopAudio(_ sender: Any) {
         
@@ -204,7 +181,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         joseph = textView.text!
         print(joseph!)
     }
-    
     // 재생 버튼
     @IBAction func PlayAudio(_ sender: Any) {
         if audioRecorder?.isRecording == false {
@@ -220,32 +196,36 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
             }
         }
     }
-    
     // 다음 버튼
     @IBAction func next(_ sender: Any) {
         let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
         let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
         recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
         joseph = textView.text!
-        print(joseph!)
-        
-        let parameters: Parameters = [
+        let parameters: [String: Any] = [
             "user": "차요셉",
             "label": "아",
-            "stt": joseph!
+            "stt": joseph ?? ""
         ]
-
-        Alamofire.request(
-            "http://ec2-15-164-228-174.ap-northeast-2.compute.amazonaws.com:8080/api/vi/ddobakis/",
-            method: .post, parameters: parameters,
-            encoding: JSONEncoding.default)
+        PronunciationRequest.sharedInstance.request(ServerURL.URL1,parameters: parameters) { (data, error) in
+            if error == nil, let data = data {
+                do {
+                    let decodedResponse = try JSONDecoder().decode(Pronunciation.self, from: data)
+                    self.accuracy = decodedResponse.accuracy
+                    self.colorCode = decodedResponse.colorCode
+                    self.dividedSTT = decodedResponse.dividedSTT
+                } catch {
+                    print("decode 에러")
+                }
+            } else {
+                print("error 발생")
+            }
+        }
     }
-    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         button.isEnabled = true
         Stop.isEnabled = false
     }
-    
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         print("Audio Play Decode Error")
     }
@@ -254,8 +234,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         print("Audio Record Encode Error")
     }
-    
-    
     // 카메라 세팅
     func setupLivePreview() {
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
