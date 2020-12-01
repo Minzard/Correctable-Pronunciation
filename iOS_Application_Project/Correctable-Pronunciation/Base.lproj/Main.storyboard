@@ -154,88 +154,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b71-n2-upL">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="환경설정" id="PFp-bF-tDB">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="uxA-SE-mk4">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pYY-QC-AH1">
-                                                <rect key="frame" x="307" y="13" width="52" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="로그아웃"/>
-                                                <connections>
-                                                    <action selector="LogOut:" destination="FKs-Rl-fFE" eventType="touchUpInside" id="eWq-ae-GXr"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hE1-aq-1vK">
-                                <rect key="frame" x="32" y="563" width="311" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="Dyx-L0-qrz"/>
-                                    <constraint firstAttribute="width" constant="311" id="s6H-65-YQH"/>
-                                    <constraint firstAttribute="width" secondItem="hE1-aq-1vK" secondAttribute="height" multiplier="311:19" id="uzI-QG-QQp"/>
-                                </constraints>
-                                <string key="text">Copyright 2019. Blues all rights reserved.
-
-출처: https://clelun.tistory.com/entry/올바른-저작권-표기 [sensitive report]</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2019. Blues all rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hE1-aq-1vK">
+                                <rect key="frame" x="30" y="569" width="315" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="그림1.png" translatesAutoresizingMaskIntoConstraints="NO" id="BdM-xJ-ylO">
-                                <rect key="frame" x="24" y="84" width="327" height="228"/>
+                                <rect key="frame" x="20" y="82" width="335" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="228" id="5sT-bu-JGd"/>
-                                    <constraint firstAttribute="width" constant="327" id="YxN-wf-uzM"/>
-                                    <constraint firstAttribute="width" secondItem="BdM-xJ-ylO" secondAttribute="height" multiplier="155:108" id="qcg-TK-gye"/>
+                                    <constraint firstAttribute="height" constant="180" id="Ma0-1T-VAu"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iao-vr-L3g">
-                                <rect key="frame" x="41.5" y="341" width="292" height="19"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="freelove54@naver.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haW-5J-m2K">
-                                        <rect key="frame" x="0.0" y="0.0" width="185" height="19"/>
-                                        <fontDescription key="fontDescription" name="Arial-BoldItalicMT" family="Arial" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님 환영합니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCW-8j-7TB">
-                                        <rect key="frame" x="193" y="0.0" width="99" height="19"/>
-                                        <fontDescription key="fontDescription" name="Arial-BoldItalicMT" family="Arial" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VP-Wl-uH0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Iao-vr-L3g" secondAttribute="height" multiplier="292:19" id="Msw-Kh-CxS"/>
-                                    <constraint firstAttribute="height" constant="19" id="VSD-iu-fif"/>
-                                    <constraint firstItem="CCW-8j-7TB" firstAttribute="leading" secondItem="haW-5J-m2K" secondAttribute="leading" id="VrK-JK-LPd"/>
-                                    <constraint firstAttribute="width" constant="292" id="kM7-tk-cqp"/>
-                                    <constraint firstAttribute="trailing" secondItem="CCW-8j-7TB" secondAttribute="trailing" id="rmT-xQ-3GV"/>
-                                    <constraint firstItem="haW-5J-m2K" firstAttribute="leading" secondItem="Iao-vr-L3g" secondAttribute="leading" id="tvy-5e-puy"/>
-                                    <constraint firstAttribute="trailing" secondItem="haW-5J-m2K" secondAttribute="trailing" constant="107" id="xa3-qW-sFE"/>
-                                    <constraint firstItem="CCW-8j-7TB" firstAttribute="leading" secondItem="Iao-vr-L3g" secondAttribute="leading" constant="193" id="yzl-Kt-xB5"/>
+                                    <constraint firstAttribute="height" constant="56" id="3ml-oi-mLT"/>
                                 </constraints>
-                            </stackView>
+                                <items>
+                                    <navigationItem title="환경설정" id="Wr4-C3-eYJ">
+                                        <barButtonItem key="rightBarButtonItem" title="로그아웃" style="plain" id="ULq-li-TyV">
+                                            <connections>
+                                                <action selector="LogOut:" destination="FKs-Rl-fFE" id="QRa-6e-GNt"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="freelove54@naver.com님" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haW-5J-m2K">
+                                <rect key="frame" x="88" y="312" width="199.5" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="CBC-sD-Zqx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="환영합니다!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6X-eU-hwI">
+                                <rect key="frame" x="145" y="336" width="85" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="76d-TH-CHd"/>
+                                    <constraint firstAttribute="height" constant="21" id="hHh-0E-Fk2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EqV-oQ-tFy"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="haW-5J-m2K" firstAttribute="firstBaseline" secondItem="BdM-xJ-ylO" secondAttribute="baseline" constant="23" symbolType="layoutAnchor" id="3Ib-Fg-eSD"/>
-                            <constraint firstItem="Iao-vr-L3g" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="6cM-eZ-q36"/>
-                            <constraint firstItem="hE1-aq-1vK" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="6ez-ct-Z1F"/>
-                            <constraint firstItem="EqV-oQ-tFy" firstAttribute="bottom" secondItem="hE1-aq-1vK" secondAttribute="bottom" constant="16" id="J6q-f7-7RX"/>
-                            <constraint firstItem="Iao-vr-L3g" firstAttribute="leading" secondItem="EqV-oQ-tFy" secondAttribute="leading" constant="41.5" id="Oc9-pt-W5y"/>
-                            <constraint firstItem="BdM-xJ-ylO" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="Wgo-Pu-bDs"/>
-                            <constraint firstItem="BdM-xJ-ylO" firstAttribute="top" secondItem="EqV-oQ-tFy" secondAttribute="top" constant="84" id="dzy-uf-YbN"/>
-                            <constraint firstItem="BdM-xJ-ylO" firstAttribute="centerY" secondItem="EqV-oQ-tFy" secondAttribute="centerY" id="hql-bT-cot"/>
-                            <constraint firstItem="hE1-aq-1vK" firstAttribute="top" secondItem="Iao-vr-L3g" secondAttribute="bottom" constant="203" id="ik4-id-bBM"/>
-                            <constraint firstItem="EqV-oQ-tFy" firstAttribute="trailing" secondItem="Iao-vr-L3g" secondAttribute="trailing" constant="41.5" id="mvj-r4-L6f"/>
-                            <constraint firstItem="Iao-vr-L3g" firstAttribute="top" secondItem="BdM-xJ-ylO" secondAttribute="bottom" constant="29" id="ygC-3Q-Nfr"/>
+                            <constraint firstItem="c6X-eU-hwI" firstAttribute="top" secondItem="haW-5J-m2K" secondAttribute="bottom" constant="5" id="6AW-Z5-7Fq"/>
+                            <constraint firstItem="haW-5J-m2K" firstAttribute="top" secondItem="BdM-xJ-ylO" secondAttribute="bottom" constant="50" id="EbQ-hx-eDZ"/>
+                            <constraint firstItem="BdM-xJ-ylO" firstAttribute="top" secondItem="2VP-Wl-uH0" secondAttribute="bottom" constant="26" id="JOE-AK-KCM"/>
+                            <constraint firstItem="hE1-aq-1vK" firstAttribute="leading" secondItem="EqV-oQ-tFy" secondAttribute="leading" constant="30" id="JaZ-5J-Tx4"/>
+                            <constraint firstItem="EqV-oQ-tFy" firstAttribute="bottom" secondItem="hE1-aq-1vK" secondAttribute="bottom" constant="10" id="No1-6w-Z4R"/>
+                            <constraint firstItem="2VP-Wl-uH0" firstAttribute="top" secondItem="EqV-oQ-tFy" secondAttribute="top" id="PRe-T4-LyE"/>
+                            <constraint firstItem="2VP-Wl-uH0" firstAttribute="leading" secondItem="OZl-Zw-2hk" secondAttribute="leading" id="YFg-wC-p9R"/>
+                            <constraint firstItem="EqV-oQ-tFy" firstAttribute="trailing" secondItem="hE1-aq-1vK" secondAttribute="trailing" constant="30" id="gSB-kE-7dD"/>
+                            <constraint firstItem="BdM-xJ-ylO" firstAttribute="leading" secondItem="EqV-oQ-tFy" secondAttribute="leading" constant="20" id="moO-02-TKA"/>
+                            <constraint firstItem="2VP-Wl-uH0" firstAttribute="trailing" secondItem="OZl-Zw-2hk" secondAttribute="trailing" id="o0I-Z8-DkC"/>
+                            <constraint firstItem="c6X-eU-hwI" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="pXg-vq-CAs"/>
+                            <constraint firstItem="EqV-oQ-tFy" firstAttribute="trailing" secondItem="BdM-xJ-ylO" secondAttribute="trailing" constant="20" id="pwi-EI-FyI"/>
+                            <constraint firstItem="BdM-xJ-ylO" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="tjx-gc-Qor"/>
+                            <constraint firstItem="haW-5J-m2K" firstAttribute="centerX" secondItem="EqV-oQ-tFy" secondAttribute="centerX" id="zaN-dM-tc6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Setting" id="uat-RG-aC3">
@@ -254,7 +236,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="cHu-Ny-n0n" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zIx-LB-78R">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="fill" id="zIx-LB-78R">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

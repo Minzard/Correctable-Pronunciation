@@ -13,7 +13,8 @@ class HomeController: UIViewController {
     @IBOutlet weak var userlabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        userlabel.text = Auth.auth().currentUser?.email
+        guard let email = Auth.auth().currentUser?.email else {return}
+        userlabel.text = "\(email)님"
         // Do any additional setup after loading the view.
     }
 

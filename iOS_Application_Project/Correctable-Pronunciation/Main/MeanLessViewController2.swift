@@ -36,7 +36,6 @@ class MeanLessViewController2: UIViewController {
                 Alamofire.request(
                     "http://ec2-15-164-228-174.ap-northeast-2.compute.amazonaws.com:8080/api/vi/ddobakis/").responseJSON { response in
                     print("Result: \(response.result)")                         // response serialization result
-                    
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
                     
@@ -51,15 +50,15 @@ class MeanLessViewController2: UIViewController {
                         self.dstt=(asdf["divided_stt"]! as! String)+"   "
                         
                         
-                        var DSTT = self.dstt!
+                        let DSTT = self.dstt!
                         print(DSTT)
                  //-----------------------------------------------------/
                         self.color=(asdf["color"]! as! String)
-                        var COLOR = self.color!
+                        let COLOR = self.color!
                         print(COLOR)
                    //-----------------------------------------------------/
                         self.accuracy=(asdf["accuracy"]! as! Int)
-                        var ACCURACY = self.accuracy!
+                        let ACCURACY = self.accuracy!
                        
                         print(ACCURACY)
                         
