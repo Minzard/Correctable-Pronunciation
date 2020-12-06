@@ -27,7 +27,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     @IBOutlet weak var Stop: UIButton!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var videoView: UIView!
-    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var wordView: UIView!
     // 음성인식 설정
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
@@ -151,7 +150,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         self.videoView.layer.addSublayer(playerLayer)
         
         player.play()
-        
         videoView.layer.cornerRadius = 6
     }
     // 녹음 버튼
@@ -174,12 +172,9 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
             audioPlayer?.stop()
         }
         let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
-        
         let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
-        
-        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
-        joseph = textView.text!
-        print(joseph!)
+        recognizer?.recognitionTask(with: request, resultHandler: { (result, error) in
+                                        self.joseph = result?.bestTranscription.formattedString})
     }
     // 재생 버튼
     @IBAction func PlayAudio(_ sender: Any) {
@@ -200,8 +195,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     @IBAction func next(_ sender: Any) {
         let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
         let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
-        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
-        joseph = textView.text!
+        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.joseph = result?.bestTranscription.formattedString})
         let parameters: [String: Any] = [
             "user": "차요셉",
             "label": "아",
@@ -221,6 +215,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                 print("error 발생")
             }
         }
+        view.isHidden = true
     }
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         button.isEnabled = true

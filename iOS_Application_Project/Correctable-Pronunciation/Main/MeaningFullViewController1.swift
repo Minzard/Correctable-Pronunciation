@@ -200,9 +200,8 @@ class MeaningFullViewController1: UIViewController, SFSpeechRecognizerDelegate, 
         
         let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
         
-        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
-        joseph = textView.text!
-        print(joseph!)
+        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.joseph = result?.bestTranscription.formattedString})
+
     }
     
     // 재생 버튼
@@ -225,20 +224,19 @@ class MeaningFullViewController1: UIViewController, SFSpeechRecognizerDelegate, 
     @IBAction func next(_ sender: Any) {
         let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
         let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
-        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.textView.text = result?.bestTranscription.formattedString})
-        joseph = textView.text!
-        print(joseph!)
+        recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.joseph = result?.bestTranscription.formattedString})
         
         let parameters: Parameters = [
             "user": "차요셉",
             "label": "사과",
-            "stt": joseph!
+            "stt": joseph ?? ""
         ]
 
         Alamofire.request(
             "http://ec2-15-164-228-174.ap-northeast-2.compute.amazonaws.com:8080/api/vi/ddobakis/",
             method: .post, parameters: parameters,
             encoding: JSONEncoding.default)
+        view.isHidden = true
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
