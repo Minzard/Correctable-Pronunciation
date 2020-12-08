@@ -12,7 +12,7 @@ import Speech
 import AVFoundation
 import AVKit
 import MBCircularProgressBar
-
+import Firebase
 class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate{
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
@@ -34,8 +34,19 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var wordView: UIView!
     @IBOutlet weak var secondViewNextbt: UIButton!
+    @IBOutlet weak var secondViewOneMorebt: UIButton!
     @IBOutlet weak var progressView: MBCircularProgressBarView!
-    
+    func initButton() {
+        let btArr: [UIButton?] = [button,nextButton,Play,Stop,secondViewNextbt,secondViewOneMorebt]
+        btArr.forEach {
+            $0?.layer.borderColor = UIColor.darkGray.cgColor
+            $0?.layer.borderWidth = 0.5
+            $0?.layer.cornerRadius = 9
+            if $0 == nextButton || $0 == Play || $0 == Stop {
+                $0?.isHidden = true
+            }
+        }
+    }
     // 음성인식 설정
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -68,35 +79,33 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                 captureSession.addOutput(stillImageOutput)
                 setupLivePreview()
             }
-            //Step 9
         }
         catch let error  {
             print("Error Unable to initialize back camera:  \(error.localizedDescription)")
         }
-        DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
+        DispatchQueue.global(qos: .userInitiated).async {
             self.captureSession.startRunning()
-            //Step 13
         }
         DispatchQueue.main.async {
             self.videoPreviewLayer.frame = self.previewView.bounds
             self.videoView.layer.cornerRadius = 9
             self.videoView.clipsToBounds = true
-            
             self.previewView.layer.cornerRadius = 9
             self.previewView.clipsToBounds = true
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        initButton()
         self.progressView.value = 0
-        currentWord.text = "\(wordArr[0] ?? "")"
+        currentWord.text = "'\(wordArr[0] ?? "")'"
         // videoView's cornerRidus 설정
         self.videoView.layer.cornerRadius = 9
         // previewView's cornerRidus 설정
         self.previewView.layer.cornerRadius = 9
         // wordView 테두리 설정
-        wordView.layer.borderWidth = 2
-        wordView.layer.borderColor = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1).cgColor
+        wordView.layer.borderWidth = 1
+        wordView.layer.borderColor = UIColor(red: 209/255, green: 209/255, blue: 214/255, alpha: 1).cgColor
         wordView.layer.cornerRadius = 9
         // imageView 에 이미지 넣기
         let imageName = "썸네일.png"
@@ -104,14 +113,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         let imageView = UIImageView(image: image)
         imageView.frame = self.videoView.bounds
         self.videoView.addSubview(imageView)
-        // 버튼 UI 초기화
-        nextButton.isHidden = true
-        Play.isHidden = true
-        Stop.isHidden = true
-        button.layer.cornerRadius = 9
-        nextButton.layer.cornerRadius = 9
-        Play.layer.cornerRadius = 9
-        Stop.layer.cornerRadius = 9
         // 음성인식 델리게이트 설정
         speechRecognizer?.delegate = self
         // 녹음 설정
@@ -148,7 +149,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
             return
         }
         let player = AVPlayer(url: URL(fileURLWithPath: path))
-        
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.videoView.bounds
         playerLayer.videoGravity = .resize
@@ -201,7 +201,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
         recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.joseph = result?.bestTranscription.formattedString})
         let parameters: [String: Any] = [
-            "user": "차요셉",
+            "user": Auth.auth().currentUser?.email ?? "",
             "label": "\(wordArr[0] ?? "")",
             "stt": joseph ?? ""
         ]
@@ -212,7 +212,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                     self.accuracy = decodedResponse.accuracy
                     self.colorCode = decodedResponse.colorCode
                     self.dividedSTT = decodedResponse.dividedSTT
-                    UIView.animate(withDuration: 4.0) {
+                    UIView.animate(withDuration: 2.0) {
                         self.progressView.value = CGFloat(self.accuracy ?? 0)
                     }
                     self.firstView.isHidden = true
