@@ -1,7 +1,7 @@
 # Correctable-Pronunciation
 ## Blues
  
-언어 장애인(마비말환자)들의 부정확한 발음을 개선시켜 주는 애플리케이션  (김시영, 김민제, 장현아, 차요셉)
+언어 장애인(마비말환자)들의 부정확한 발음을 개선시켜 주는 애플리케이션  (김시영, 김민제, 차요셉)
 
 This is application for dysarthria to improve their pronunciation by using deep learning
 by Siyoung Kim, Minje Kim, Hyunah jang, Joseph cha
