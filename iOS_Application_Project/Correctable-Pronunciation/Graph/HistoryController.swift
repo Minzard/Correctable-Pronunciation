@@ -2,7 +2,7 @@
 //  HistoryController.swift
 //  Test3
 //
-//  Created by 차요셉 on 2019. 3. 31..
+//  Created by 차요셉 on 2020. 12. 15..
 //  Copyright © 2019년 차요셉. All rights reserved.
 //
 
@@ -52,7 +52,7 @@ class HistoryController: UIViewController {
         let today = Date()
         let calendar = Calendar.current
         
-        // 요일을 알파벳형식으로 포맷하는 과정 ex) S(sunday) M(Monday)
+        // 요일을 알파벳형식으로 포맷하는 과정 ex) 일(일요일) 월(월요일)
         let formatter = DateFormatter()
         formatter.setLocalizedDateFormatFromTemplate("EEEEE")
         formatter.locale = Locale(identifier: "ko")

@@ -2,7 +2,7 @@
 //  WordSelectCollectionViewCell.swift
 //  Correctable-Pronunciation
 //
-//  Created by 차요셉 on 2020/12/07.
+//  Created by 차요셉 on 2020/12/12.
 //  Copyright © 2020 차요셉. All rights reserved.
 //
 

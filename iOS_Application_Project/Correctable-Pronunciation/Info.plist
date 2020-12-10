@@ -43,7 +43,7 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>카메라사용할텨?</string>
+	<string>카메라 사용권한을 허용하시겠습니까?</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string></string>
 	<key>NSSpeechRecognitionUsageDescription</key>

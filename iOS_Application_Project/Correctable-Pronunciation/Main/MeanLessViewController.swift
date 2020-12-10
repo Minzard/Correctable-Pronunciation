@@ -2,8 +2,8 @@
 //  MeanLessViewController.swift
 //  Test3
 //
-//  Created by 차요셉 on 2019. 4. 2..
-//  Copyright © 2019년 차요셉. All rights reserved.
+//  Created by 차요셉 on 2020. 12. 12..
+//  Copyright © 2020년 차요셉. All rights reserved.
 // 63 140 39
 
 

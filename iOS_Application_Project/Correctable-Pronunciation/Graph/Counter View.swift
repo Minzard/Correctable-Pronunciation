@@ -2,8 +2,8 @@
 //  GraphView.swift
 //  Flo
 //
-//  Created by 차요셉 on 13/06/2019.
-//  Copyright © 2019 차요셉. All rights reserved.
+//  Created by 차요셉 on 2020. 12. 15..
+//  Copyright © 2020 차요셉. All rights reserved.
 //
 
 import UIKit
