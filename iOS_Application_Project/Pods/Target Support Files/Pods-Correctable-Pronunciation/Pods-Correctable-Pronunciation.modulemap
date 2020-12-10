@@ -1,0 +1,6 @@
+framework module Pods_Correctable_Pronunciation {
+  umbrella header "Pods-Correctable-Pronunciation-umbrella.h"
+
+  export *
+  module * { export * }
+}
