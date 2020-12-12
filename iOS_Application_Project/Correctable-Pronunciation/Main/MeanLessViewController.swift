@@ -13,7 +13,11 @@ import AVFoundation
 import AVKit
 import MBCircularProgressBar
 import Firebase
+
 class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate{
+    var dayArr = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    var monthArr = ["jan","feb","mar","apr","may","jun","jul","aug","sep","opt","dec","nov"]
+    var ref : DatabaseReference!
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
     var player: AVPlayer!
@@ -96,6 +100,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.ref = Database.database().reference()
         initButton()
         self.progressView.value = 0
         currentWord.text = "'\(wordArr[0] ?? "")'"
@@ -197,6 +202,16 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     }
     // 다음 버튼
     @IBAction func next(_ sender: Any) {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE,MM,dd"
+        let currentDateString: String = dateFormatter.string(from: date)
+        let dateFormAry = currentDateString.components(separatedBy: ",")
+        guard let dayOfWeek = dateFormAry.first?.lowercased() else { return }
+        let month = Int(dateFormAry[1]) ?? 1
+        let day = Int(dateFormAry.last ?? "1") ?? 1
+        let dateSize = (month * 30) + day
+        
         let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
         let request = SFSpeechURLRecognitionRequest(url: (audioRecorder?.url)!)
         recognizer?.recognitionTask(with: request, resultHandler: {(result, error) in self.joseph = result?.bestTranscription.formattedString})
@@ -215,6 +230,205 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                     UIView.animate(withDuration: 2.0) {
                         self.progressView.value = CGFloat(self.accuracy ?? 0)
                     }
+                    guard var email = Auth.auth().currentUser?.email else {
+                        print("email 정보 없음")
+                        return
+                    }
+                    email = email.replacingOccurrences(of: ".", with: "_")
+//                    self.ref.child("user_email").child(email).child("accuracy_list").setValue([self.accuracy])
+                    
+                    self.ref.child("user_email/\(email)/AccuracyList").observeSingleEvent(of: .value, with: { (snapshot) in
+                        switch snapshot.value{
+                        case .some(let x):
+                            let y = "\(x)"
+                            if y == "<null>" {
+                                if month == 1 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/jan").setValue([self.accuracy ?? 0])
+                                } else if month == 2 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/feb").setValue([self.accuracy ?? 0])
+                                } else if month == 3 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/mar").setValue([self.accuracy ?? 0])
+                                } else if month == 4 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/apr").setValue([self.accuracy ?? 0])
+                                } else if month == 5 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/may").setValue([self.accuracy ?? 0])
+                                } else if month == 6 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/jun").setValue([self.accuracy ?? 0])
+                                } else if month == 7 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/jul").setValue([self.accuracy ?? 0])
+                                } else if month == 8 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/aug").setValue([self.accuracy ?? 0])
+                                } else if month == 9 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/sep").setValue([self.accuracy ?? 0])
+                                } else if month == 10 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/opt").setValue([self.accuracy ?? 0])
+                                } else if month == 11 {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/nov").setValue([self.accuracy ?? 0])
+                                } else {
+                                    self.ref.child("user_email/\(email)/AccuracyList/month/dec").setValue([self.accuracy ?? 0])
+                                }
+                                if dayOfWeek == "monday" {
+                                    self.ref.child("user_email/\(email)/AccuracyList/monday/accuracyArr").setValue([self.accuracy ?? 0])
+                                    self.ref.child("user_email/\(email)/AccuracyList/monday/date").setValue(dateSize)
+                                } else if dayOfWeek == "tuesday" {
+                                    self.ref.child("user_email/\(email)/AccuracyList/tuesday/accuracyArr").setValue([self.accuracy ?? 0])
+                                    self.ref.child("user_email/\(email)/AccuracyList/tuesday/date").setValue(dateSize)
+                                } else if dayOfWeek == "wednesday" {
+                                    self.ref.child("user_email/\(email)/AccuracyList/wednesday/accuracyArr").setValue([self.accuracy ?? 0])
+                                    self.ref.child("user_email/\(email)/AccuracyList/wednesday/date").setValue(dateSize)
+                                } else if dayOfWeek == "thursday" {
+                                    self.ref.child("user_email/\(email)/AccuracyList/thursday/accuracyArr").setValue([self.accuracy ?? 0])
+                                    self.ref.child("user_email/\(email)/AccuracyList/thursday/date").setValue(dateSize)
+                                } else if dayOfWeek == "friday" {
+                                    self.ref.child("user_email/\(email)/AccuracyList/friday/accuracyArr").setValue([self.accuracy ?? 0])
+                                    self.ref.child("user_email/\(email)/AccuracyList/friday/date").setValue(dateSize)
+                                } else if dayOfWeek == "saturday" {
+                                    self.ref.child("user_email/\(email)/AccuracyList/saturday/accuracyArr").setValue([self.accuracy ?? 0])
+                                    self.ref.child("user_email/\(email)/AccuracyList/saturday/date").setValue(dateSize)
+                                } else {
+                                    self.ref.child("user_email/\(email)/AccuracyList/sunday/accuracyArr").setValue([self.accuracy ?? 0])
+                                    self.ref.child("user_email/\(email)/AccuracyList/sunday/date").setValue(dateSize)
+                                }
+                            } else {
+                                do {
+                                    let dataJSON = try JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+                                    let tempAccuracyList = try JSONDecoder().decode(AccuracyList.self, from: dataJSON)
+//                                    var tempAccuracyLis2t = snapshot.value as? NSArray
+//                                    self.ref.child("user_email/\(email)/accuracy_list").setValue(tempAccuracyList2?.adding(self.accuracy ?? 0))
+                                    if month == 1 {
+                                        let tempOfArr = tempAccuracyList.month?.jan as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/jan").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 2 {
+                                        let tempOfArr = tempAccuracyList.month?.feb as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/feb").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 3 {
+                                        let tempOfArr = tempAccuracyList.month?.mar as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/mar").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 4 {
+                                        let tempOfArr = tempAccuracyList.month?.apr as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/apr").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 5 {
+                                        let tempOfArr = tempAccuracyList.month?.may as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/may").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 6 {
+                                        let tempOfArr = tempAccuracyList.month?.jun as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/jun").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 7 {
+                                        let tempOfArr = tempAccuracyList.month?.jul as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/jul").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 8 {
+                                        let tempOfArr = tempAccuracyList.month?.aug as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/aug").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 9 {
+                                        let tempOfArr = tempAccuracyList.month?.sep as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/sep").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 10 {
+                                        let tempOfArr = tempAccuracyList.month?.oct as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/oct").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else if month == 11 {
+                                        let tempOfArr = tempAccuracyList.month?.nov as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/nov").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    } else {
+                                        let tempOfArr = tempAccuracyList.month?.dec as NSArray?
+                                        self.ref.child("user_email/\(email)/AccuracyList/month/dec").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                    }
+                                    if dayOfWeek == "monday" {
+                                        let tempOfArr = tempAccuracyList.monday?.accuracyArr as NSArray?
+                                        if dateSize == tempAccuracyList.monday?.date {
+                                            self.ref.child("user_email/\(email)/AccuracyList/monday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/monday/accuracyArr").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                        } else {
+                                            self.ref.child("user_email/\(email)/AccuracyList/monday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/monday/accuracyArr").setValue([self.accuracy ?? 0])
+                                        }
+                                    } else if dayOfWeek == "tuesday" {
+                                        let tempOfArr = tempAccuracyList.tuesday?.accuracyArr as NSArray?
+                                        if dateSize == tempAccuracyList.tuesday?.date {
+                                            self.ref.child("user_email/\(email)/AccuracyList/tuesday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/tuesday/accuracyArr").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                        } else {
+                                            self.ref.child("user_email/\(email)/AccuracyList/tuesday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/tuesday/accuracyArr").setValue([self.accuracy ?? 0])
+                                        }
+                                    } else if dayOfWeek == "wednesday" {
+                                        let tempOfArr = tempAccuracyList.wednesday?.accuracyArr as NSArray?
+                                        if dateSize == tempAccuracyList.wednesday?.date {
+                                            self.ref.child("user_email/\(email)/AccuracyList/wednesday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/wednesday/accuracyArr").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                        } else {
+                                            self.ref.child("user_email/\(email)/AccuracyList/wednesday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/wednesday/accuracyArr").setValue([self.accuracy ?? 0])
+                                        }
+                                    } else if dayOfWeek == "thursday" {
+                                        let tempOfArr = tempAccuracyList.monday?.accuracyArr as NSArray?
+                                        if dateSize == tempAccuracyList.monday?.date {
+                                            self.ref.child("user_email/\(email)/AccuracyList/thursday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/thursday/accuracyArr").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                        } else {
+                                            self.ref.child("user_email/\(email)/AccuracyList/thursday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/thursday/accuracyArr").setValue([self.accuracy ?? 0])
+                                        }
+                                    } else if dayOfWeek == "friday" {
+                                        let tempOfArr = tempAccuracyList.friday?.accuracyArr as NSArray?
+                                        if dateSize == tempAccuracyList.friday?.date {
+                                            self.ref.child("user_email/\(email)/AccuracyList/friday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/friday/accuracyArr").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                        } else {
+                                            self.ref.child("user_email/\(email)/AccuracyList/friday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/friday/accuracyArr").setValue([self.accuracy ?? 0])
+                                        }
+                                    } else if dayOfWeek == "saturday" {
+                                        let tempOfArr = tempAccuracyList.saturday?.accuracyArr as NSArray?
+                                        if dateSize == tempAccuracyList.saturday?.date {
+                                            self.ref.child("user_email/\(email)/AccuracyList/saturday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/saturday/accuracyArr").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                        } else {
+                                            self.ref.child("user_email/\(email)/AccuracyList/saturday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/saturday/accuracyArr").setValue([self.accuracy ?? 0])
+                                        }
+                                    } else {
+                                        let tempOfArr = tempAccuracyList.sunday?.accuracyArr as NSArray?
+                                        if dateSize == tempAccuracyList.sunday?.date {
+                                            self.ref.child("user_email/\(email)/AccuracyList/sunday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/sunday/accuracyArr").setValue(tempOfArr?.adding(self.accuracy ?? 0))
+                                        } else {
+                                            self.ref.child("user_email/\(email)/AccuracyList/sunday/date").setValue(dateSize)
+                                            self.ref.child("user_email/\(email)/AccuracyList/sunday/accuracyArr").setValue([self.accuracy ?? 0])
+                                        }
+                                    }
+                                    
+                                } catch {
+                                    
+                                }
+                            }
+                        case .none:
+                            print("none")
+                        }
+                      }) { (error) in
+                        print(error.localizedDescription)
+                    }
+                    
+//                    self.ref.child("user_email/\(email)/accuracy_list").observeSingleEvent(of: .value, with: { (snapshot) in
+//                        switch snapshot.value{
+//                        case .some(let x):
+//                            let y = "\(x)"
+//                            if y == "<null>" {
+//                                self.ref.child("user_email/\(email)/accuracy_list").setValue([self.accuracy])
+//                            } else {
+//                                let tempAccuracyList = snapshot.value as? NSArray
+//                                self.ref.child("user_email/\(email)/accuracy_list").setValue(tempAccuracyList?.adding(self.accuracy ?? 0))
+//                            }
+//                        case .none:
+//                            print("none")
+//                        }
+//                      }) { (error) in
+//                        print(error.localizedDescription)
+//                    }
+                    
+//                    self.ref.child("users").child(user.uid).setValue(["username": username])
+//                    self.ref.child("users/\(user.uid)/username").setValue(username)
+//                    self.ref.child("user_email").child(Auth.auth().currentUser?.email ?? "").child("accuracy_list").setValue(0)
+//                    self.ref.child("users_email").child(Auth.auth().currentUser?.uid ?? "").setValue(["accuracy_list": self.accuracy ?? 0])
                     self.firstView.isHidden = true
                     self.secondView.isHidden = false
                     if self.wordArr.count == 1 {

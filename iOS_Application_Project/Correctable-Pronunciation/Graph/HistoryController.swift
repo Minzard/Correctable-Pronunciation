@@ -8,10 +8,10 @@
 
 import UIKit
 import MBCircularProgressBar
-
+import Firebase
 class HistoryController: UIViewController {
 
-   
+    var ref : DatabaseReference!
     @IBOutlet weak var MonthlyAverage: UILabel!
     @IBOutlet weak var WeeklyAverage: UILabel!
     @IBOutlet weak var graphView: Graph_View!

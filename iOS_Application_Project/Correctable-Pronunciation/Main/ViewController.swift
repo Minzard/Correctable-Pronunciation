@@ -24,6 +24,12 @@ class ViewController: UIViewController {
             if error != nil {
                 Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) { [weak self] user, error in
                     guard let self = self else { return }
+                    if user == nil || error != nil {
+                        let alert = UIAlertController(title: "알림", message: "아이디 또는 패스워드가\n 잘못되었습니다.", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        return
+                    }
                     self.performSegue(withIdentifier: "Home", sender: nil)
                 }
             }

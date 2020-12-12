@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import Firebase
 // CounterView == MonthlyView
 @IBDesignable class Counter_View: UIView {
+    
     var graphPoints = [55,58,62,65,67,69,71,73,74,77,82,85]
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 8.0, height: 8.0)
