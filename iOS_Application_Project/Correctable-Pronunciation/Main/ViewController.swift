@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  Test3
+//  Correctable-Pronunciation
 //
 //  Created by 차요셉 on 2020. 12. 12..
-//  Copyright © 2019년 차요셉. All rights reserved.
+//  Copyright © 2020년 차요셉. All rights reserved.
 //
 import UIKit
 import Firebase

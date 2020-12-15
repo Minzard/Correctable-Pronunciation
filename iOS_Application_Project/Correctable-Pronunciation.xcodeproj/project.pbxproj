@@ -16,6 +16,7 @@
 		231B050F23BEFF6C00F01ECE /* 사과.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 231B050A23BEFF6C00F01ECE /* 사과.MOV */; };
 		231B051023BEFF6C00F01ECE /* 아아.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 231B050B23BEFF6C00F01ECE /* 아아.MOV */; };
 		231B051223BF008B00F01ECE /* 썸네일.png in Resources */ = {isa = PBXBuildFile; fileRef = 231B051123BF008B00F01ECE /* 썸네일.png */; };
+		2323E4942587878300F22286 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35ABB22F8F6CB0099ABE3 /* MonthView.swift */; };
 		2355803E257E1FC400AEC95F /* WordSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355803D257E1FC400AEC95F /* WordSelectCollectionViewCell.swift */; };
 		2386254423B48DE8006CBBFD /* 아어썸네일2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2386254323B48DE8006CBBFD /* 아어썸네일2.png */; };
 		2386254623B492BF006CBBFD /* 아어썸네일3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2386254523B492BF006CBBFD /* 아어썸네일3.png */; };
@@ -24,8 +25,7 @@
 		23997275257D267800643BFD /* 클릭이미지.png in Resources */ = {isa = PBXBuildFile; fileRef = 23997274257D267700643BFD /* 클릭이미지.png */; };
 		23997278257D2A2D00643BFD /* WordProcessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23997277257D2A2D00643BFD /* WordProcessTableViewCell.swift */; };
 		23D02149257665D500BFA350 /* Pronunciation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02148257665D500BFA350 /* Pronunciation.swift */; };
-		23D35ABA22F8F5920099ABE3 /* Graph View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35AB922F8F5920099ABE3 /* Graph View.swift */; };
-		23D35ABC22F8F6CB0099ABE3 /* Counter View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */; };
+		23D35ABA22F8F5920099ABE3 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35AB922F8F5920099ABE3 /* WeekView.swift */; };
 		23F6FF492583E3B0004BEB38 /* AccuracyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6FF482583E3B0004BEB38 /* AccuracyList.swift */; };
 		7C55E083225BAF040003B099 /* 또바기.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C55E082225BAF040003B099 /* 또바기.png */; };
 		7C67F20222649817006A66F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C67F20122649817006A66F4 /* LaunchScreen.storyboard */; };
@@ -59,8 +59,8 @@
 		23997274257D267700643BFD /* 클릭이미지.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "클릭이미지.png"; sourceTree = "<group>"; };
 		23997277257D2A2D00643BFD /* WordProcessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordProcessTableViewCell.swift; sourceTree = "<group>"; };
 		23D02148257665D500BFA350 /* Pronunciation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pronunciation.swift; sourceTree = "<group>"; };
-		23D35AB922F8F5920099ABE3 /* Graph View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph View.swift"; sourceTree = "<group>"; };
-		23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter View.swift"; sourceTree = "<group>"; };
+		23D35AB922F8F5920099ABE3 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		23D35ABB22F8F6CB0099ABE3 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		23F6FF482583E3B0004BEB38 /* AccuracyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuracyList.swift; sourceTree = "<group>"; };
 		694986CF07DF33783E03593C /* Pods-Correctable-Pronunciation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Correctable-Pronunciation.debug.xcconfig"; path = "Target Support Files/Pods-Correctable-Pronunciation/Pods-Correctable-Pronunciation.debug.xcconfig"; sourceTree = "<group>"; };
 		77E5CC2E26A206FFE48F8988 /* Pods-Correctable-Pronunciation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Correctable-Pronunciation.release.xcconfig"; path = "Target Support Files/Pods-Correctable-Pronunciation/Pods-Correctable-Pronunciation.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				7CA4B57B2250A47D00D75715 /* HistoryController.swift */,
-				23D35AB922F8F5920099ABE3 /* Graph View.swift */,
-				23D35ABB22F8F6CB0099ABE3 /* Counter View.swift */,
+				23D35AB922F8F5920099ABE3 /* WeekView.swift */,
+				23D35ABB22F8F6CB0099ABE3 /* MonthView.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -359,8 +359,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2399726D257D1F6500643BFD /* WordProcessSelectViewController.swift in Sources */,
+				2323E4942587878300F22286 /* MonthView.swift in Sources */,
 				7CA83A0722416F0600F9AC8A /* ViewController.swift in Sources */,
-				23D35ABA22F8F5920099ABE3 /* Graph View.swift in Sources */,
+				23D35ABA22F8F5920099ABE3 /* WeekView.swift in Sources */,
 				7CA83A0522416F0600F9AC8A /* AppDelegate.swift in Sources */,
 				23997260257D1AAF00643BFD /* WordSelectViewController.swift in Sources */,
 				7CA4B57C2250A47D00D75715 /* HistoryController.swift in Sources */,
@@ -369,7 +370,6 @@
 				23F6FF492583E3B0004BEB38 /* AccuracyList.swift in Sources */,
 				23997278257D2A2D00643BFD /* WordProcessTableViewCell.swift in Sources */,
 				230A842B25766B2300EF0C4C /* ServerURL.swift in Sources */,
-				23D35ABC22F8F6CB0099ABE3 /* Counter View.swift in Sources */,
 				2355803E257E1FC400AEC95F /* WordSelectCollectionViewCell.swift in Sources */,
 				7CC3D574225267B2001F3380 /* MeanLessViewController.swift in Sources */,
 				7C8E54BC2241862B001F52C8 /* HomeController.swift in Sources */,

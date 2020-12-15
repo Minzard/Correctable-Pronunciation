@@ -1,6 +1,6 @@
 //
 //  GraphView.swift
-//  Flo
+//  Correctable-Pronunciation
 //
 //  Created by 차요셉 on 2020. 12. 15..
 //  Copyright © 2020 차요셉. All rights reserved.
@@ -8,11 +8,9 @@
 
 import UIKit
 
-
-@IBDesignable class Graph_View: UIView {
-    
-    // GraphView == WeeklyView
-    var graphPoints = [84,86,80,85,87,86,87]
+@IBDesignable class MonthView: UIView {
+    private var label: UILabel!
+    var graphPoints = [0,0,0,0,0,0,0,0,0,0,0,0]
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 8.0, height: 8.0)
         static let margin: CGFloat = 20.0
@@ -21,12 +19,18 @@ import UIKit
         static let colorAlpha: CGFloat = 0.3
         static let circleDiameter: CGFloat = 5.0
     }
-    
-    // 1. 그래디언트 프로퍼티: IBInspectable이므로 storyboard에서 변경 가능
     @IBInspectable var startColor: UIColor = .red
     @IBInspectable var endColor: UIColor = .green
     
     override func draw(_ rect: CGRect) {
+        self.subviews.forEach({
+                                switch $0.tag {
+                                case 0 ..< graphPoints.count:
+                                    $0.removeFromSuperview()
+                                default:
+                                    return
+                                }
+        })
         let width = rect.width
         let height = rect.height
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: .allCorners, cornerRadii: Constants.cornerRadiusSize)
@@ -34,16 +38,12 @@ import UIKit
         let context = UIGraphicsGetCurrentContext()!
         let colors = [startColor.cgColor, endColor.cgColor]
         
-        // 3. 컬라스페이스 (CMYK, greyscale, RGB 중에서 선택)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
-        // 4. 그래디언트를 위한 컬러 변경 위치
         let colorLocations: [CGFloat] = [0.0, 1.0]
         
-        // 5. 그래디언트 생성
         let gradient = CGGradient(colorsSpace: colorSpace, colors: colors as CFArray, locations: colorLocations)!
         
-        // 6. 그래디언트 드로잉
         let startPoint = CGPoint.zero
         let endPoint = CGPoint(x: 0, y: bounds.height)
         context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
@@ -80,7 +80,16 @@ import UIKit
             var point = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPoints[i]))
             point.x -= Constants.circleDiameter / 2
             point.y -= Constants.circleDiameter / 2
-            
+            if graphPoints[i] > 0 {
+                label = UILabel(frame: CGRect(x: columnXPoint(i) - 10, y: columnYPoint(graphPoints[i]) - 20, width: 20, height: 20))
+                label.text = "\(graphPoints[i])"
+                label.font = UIFont(name: "AppleSDGothicNeo-Light", size: 15)
+                label.textColor = .white
+                label.textAlignment = .center
+                label.adjustsFontSizeToFitWidth = true
+                label.tag = i
+                addSubview(label)
+            }
             let circle = UIBezierPath(ovalIn: CGRect(origin: point, size: CGSize(width: Constants.circleDiameter, height: Constants.circleDiameter)))
             circle.fill()
         }
