@@ -26,6 +26,7 @@
 		23997278257D2A2D00643BFD /* WordProcessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23997277257D2A2D00643BFD /* WordProcessTableViewCell.swift */; };
 		23D02149257665D500BFA350 /* Pronunciation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02148257665D500BFA350 /* Pronunciation.swift */; };
 		23D35ABA22F8F5920099ABE3 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D35AB922F8F5920099ABE3 /* WeekView.swift */; };
+		23E9CD4E2588C02700E7FA7B /* Right.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9CD4D2588C02700E7FA7B /* Right.swift */; };
 		23F6FF492583E3B0004BEB38 /* AccuracyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6FF482583E3B0004BEB38 /* AccuracyList.swift */; };
 		7C55E083225BAF040003B099 /* 또바기.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C55E082225BAF040003B099 /* 또바기.png */; };
 		7C67F20222649817006A66F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C67F20122649817006A66F4 /* LaunchScreen.storyboard */; };
@@ -61,6 +62,7 @@
 		23D02148257665D500BFA350 /* Pronunciation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pronunciation.swift; sourceTree = "<group>"; };
 		23D35AB922F8F5920099ABE3 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		23D35ABB22F8F6CB0099ABE3 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		23E9CD4D2588C02700E7FA7B /* Right.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Right.swift; sourceTree = "<group>"; };
 		23F6FF482583E3B0004BEB38 /* AccuracyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuracyList.swift; sourceTree = "<group>"; };
 		694986CF07DF33783E03593C /* Pods-Correctable-Pronunciation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Correctable-Pronunciation.debug.xcconfig"; path = "Target Support Files/Pods-Correctable-Pronunciation/Pods-Correctable-Pronunciation.debug.xcconfig"; sourceTree = "<group>"; };
 		77E5CC2E26A206FFE48F8988 /* Pods-Correctable-Pronunciation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Correctable-Pronunciation.release.xcconfig"; path = "Target Support Files/Pods-Correctable-Pronunciation/Pods-Correctable-Pronunciation.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		7CA83A0322416F0600F9AC8A /* Correctable-Pronunciation */ = {
 			isa = PBXGroup;
 			children = (
+				23E9CD4D2588C02700E7FA7B /* Right.swift */,
 				7CA83A0422416F0600F9AC8A /* AppDelegate.swift */,
 				7CA83A0822416F0600F9AC8A /* Main.storyboard */,
 				23D0212B25765E1100BFA350 /* Model */,
@@ -362,6 +365,7 @@
 				2323E4942587878300F22286 /* MonthView.swift in Sources */,
 				7CA83A0722416F0600F9AC8A /* ViewController.swift in Sources */,
 				23D35ABA22F8F5920099ABE3 /* WeekView.swift in Sources */,
+				23E9CD4E2588C02700E7FA7B /* Right.swift in Sources */,
 				7CA83A0522416F0600F9AC8A /* AppDelegate.swift in Sources */,
 				23997260257D1AAF00643BFD /* WordSelectViewController.swift in Sources */,
 				7CA4B57C2250A47D00D75715 /* HistoryController.swift in Sources */,

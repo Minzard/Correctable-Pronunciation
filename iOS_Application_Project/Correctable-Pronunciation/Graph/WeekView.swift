@@ -19,9 +19,6 @@ import UIKit
         static let colorAlpha: CGFloat = 0.3
         static let circleDiameter: CGFloat = 5.0
     }
-    deinit {
-        print("ABC")
-    }
     // 1. 그래디언트 프로퍼티: IBInspectable이므로 storyboard에서 변경 가능
     @IBInspectable var startColor: UIColor = .red
     @IBInspectable var endColor: UIColor = .green

@@ -17,19 +17,43 @@ class HistoryController: UIViewController {
     @IBOutlet weak var monthView: MonthView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var compareView: UIView!
-    @IBOutlet weak var compareLabel: UILabel!
+    @IBOutlet weak var compareWeekView: UIView!
+    @IBOutlet weak var compareWeekLabel: UILabel!
+    @IBOutlet weak var compareMonthView: UIView!
+    @IBOutlet weak var compareMonthLabel: UILabel!
+    
+    var currentMonth: Int = {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE,MM,dd"
+        let currentDateString: String = dateFormatter.string(from: date)
+        let dateFormAry = currentDateString.components(separatedBy: ",")
+        return Int(dateFormAry[1]) ?? 1
+    }()
+    var currentWeek: String = {
+        let today = Date()
+        let calendar = Calendar.current
+        let formatter = DateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("EEEEE")
+        formatter.locale = Locale(identifier: "ko")
+        guard let date = calendar.date(byAdding: .day, value: 0, to: today) else { return "" }
+        return formatter.string(from: date)
+    }()
     var monthArr: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0]
     var weekArr: [Int] = [0,0,0,0,0,0,0]
+    var changeOfMonth: Int?
+    var changeOfWeek: Int?
     //Graph뷰 혹은 Counter뷰 볼것인지 결정하는 변수
     var isGraphViewShowing = true
     
     @IBAction func changeValueOfSegCon(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            UIView.transition(from: monthView, to: weekView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
+            UIView.transition(from: monthView, to: weekView, duration: 1.0, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
+            UIView.transition(from: compareMonthView, to: compareWeekView, duration: 1.0, options: [.showHideTransitionViews], completion: nil)
         case 1:
             UIView.transition(from: weekView, to: monthView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
+            UIView.transition(from: compareWeekView, to: compareMonthView, duration: 1.0, options: [.showHideTransitionViews], completion: nil)
         default:
             print("Segcon 에러")
         }
@@ -46,26 +70,17 @@ class HistoryController: UIViewController {
         indicatorView.startAnimating()
         readFirebaseDataBase()
         super.viewDidLoad()
-        setupGraphDisplay()
-        compareLabel.text = ""
     }
     // 라벨 처리하는 함수
-    func setupGraphDisplay() {
-        // 현재 날짜를 알려주는 변수
+    func getToday() -> String {
         let today = Date()
         let calendar = Calendar.current
-        
-        // 요일을 알파벳형식으로 포맷하는 과정 ex) 일(일요일) 월(월요일)
         let formatter = DateFormatter()
         formatter.setLocalizedDateFormatFromTemplate("EEEEE")
         formatter.locale = Locale(identifier: "ko")
+        guard let date = calendar.date(byAdding: .day, value: 0, to: today) else { return "" }
+        return formatter.string(from: date)
         // 정렬된 라벨에 알파벳 형식의 요일을 삽입
-        for i in 0...6 {
-            if let date = calendar.date(byAdding: .day, value: +i, to: today),
-                let label = stackView.arrangedSubviews[0 + i] as? UILabel {
-                label.text = formatter.string(from: date)
-            }
-        }
     }
     func readFirebaseDataBase() {
         self.ref = Database.database().reference()
@@ -74,14 +89,15 @@ class HistoryController: UIViewController {
             return
         }
         email = email.replacingOccurrences(of: ".", with: "_")
-//                    self.ref.child("user_email").child(email).child("accuracy_list").setValue([self.accuracy])
-        
         self.ref.child("user_email/\(email)/AccuracyList").observeSingleEvent(of: .value) { (snapshot) in
             switch snapshot.value{
             case .some(let x):
                 let y = "\(x)"
                 if y == "<null>" {
-                    print("발음 연습을 하신 적이 없습니다.")
+                    self.indicatorView.stopAnimating()
+                    let alert = UIAlertController(title: "알림", message: "발음 연습을 하신 적이 없습니다.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 } else {
                     do {
                         let dataJSON = try JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
@@ -262,13 +278,55 @@ class HistoryController: UIViewController {
                         self.monthView.graphPoints = self.monthArr
                         self.weekView.setNeedsDisplay()
                         self.monthView.setNeedsDisplay()
-                        self.MonthlyAverage.text = "\(self.getAverage(self.monthArr))%"
-                        self.WeeklyAverage.text = "\(self.getAverage(self.weekArr))%"
+                        self.MonthlyAverage.text = "\(String(format: "%.1f",  self.getAverage(self.monthArr)))%"
+                        self.WeeklyAverage.text = "\(String(format: "%.1f",  self.getAverage(self.weekArr)))%"
+
+                        if self.currentWeek == "월" {
+                            self.changeOfWeek = self.weekArr[0] - self.weekArr[6]
+                        } else if self.currentWeek == "화" {
+                            self.changeOfWeek = self.weekArr[1] - self.weekArr[0]
+                        } else if self.currentWeek == "수" {
+                            self.changeOfWeek = self.weekArr[2] - self.weekArr[1]
+                        } else if self.currentWeek == "목" {
+                            self.changeOfWeek = self.weekArr[3] - self.weekArr[2]
+                        } else if self.currentWeek == "금" {
+                            self.changeOfWeek = self.weekArr[4] - self.weekArr[3]
+                        } else if self.currentWeek == "토" {
+                            self.changeOfWeek = self.weekArr[5] - self.weekArr[4]
+                        } else {
+                            self.changeOfWeek = self.weekArr[6] - self.weekArr[5]
+                        }
+                        self.changeOfMonth = self.monthArr[self.currentMonth - 1] - self.monthArr[self.currentMonth - 2]
+                        var text = "오늘: \(self.getToday())요일\n어제보다 \(self.changeOfWeek ?? 0)% 변화가 있었습니다."
+                        var range = (text as NSString).range(of: "\(self.changeOfWeek ?? 0)")
+                        if self.changeOfWeek ?? 0 > 0 {
+                            text = "오늘: \(self.getToday())요일\n어제보다 +\(self.changeOfWeek ?? 0)% 변화가 있었습니다."
+                            range = (text as NSString).range(of: "+\(self.changeOfWeek ?? 0)")
+                        }
+                        
+                        var attributedString = NSMutableAttributedString(string: text)
+                        if self.changeOfWeek ?? 0 >= 0 {
+                            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range)
+                        } else {
+                            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: range)
+                        }
+                        self.compareWeekLabel.attributedText = attributedString
+                        text = "지난 달보다 \(self.changeOfMonth ?? 0)% 변화가 있었습니다."
+                        range = (text as NSString).range(of: "\(self.changeOfMonth ?? 0)")
+                        if self.changeOfMonth ?? 0 > 0 {
+                            text = "지난 달보다 +\(self.changeOfMonth ?? 0)% 변화가 있었습니다."
+                            range = (text as NSString).range(of: "+\(self.changeOfMonth ?? 0)")
+                        }
+                        attributedString = NSMutableAttributedString(string: text)
+                        if self.changeOfMonth ?? 0 >= 0 {
+                            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range)
+                        } else {
+                            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: range)
+                        }
+                        self.compareMonthLabel.attributedText = attributedString
                         self.view.layoutIfNeeded()
                         self.indicatorView.stopAnimating()
-                    }
-                        
-                     catch {
+                    } catch {
                         
                     }
                 }
@@ -277,11 +335,11 @@ class HistoryController: UIViewController {
             }
         }
     }
-    func getAverage(_ array: [Int]) -> Int {
+    func getAverage(_ array: [Int]) -> Double {
         let sum = array.reduce(0) { (result: Int, next: Int) -> Int in
             return result + next
         }
         let countOfArray = array.count
-        return sum / countOfArray
+        return Double(sum) / Double(countOfArray)
     }
 }
