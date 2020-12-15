@@ -7,14 +7,14 @@
 //
 import UIKit
 import Firebase
-class ViewController: UIViewController { 
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     @IBAction func signin(_ sender: Any) {
-        
+        self.view.endEditing(true)
         if self.email.text == "" {
             print("아이디가 입력되지 않았습니다")
             return
@@ -35,11 +35,23 @@ class ViewController: UIViewController {
             }
             else {
                 let alert = UIAlertController(title: "알림", message: "회원가입완료", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
+                alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: {_ in
+                    self.performSegue(withIdentifier: "Home", sender: nil)
+                }))
                 self.present(alert, animated: true, completion: nil)
-                self.performSegue(withIdentifier: "Home", sender: nil)
             }
         }
+        }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
+    }
+    @IBAction func returnFromSegueActions(segue:UIStoryboardSegue){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
         }
     }
 }

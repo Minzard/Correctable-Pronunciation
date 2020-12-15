@@ -40,6 +40,9 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     @IBOutlet weak var secondViewNextbt: UIButton!
     @IBOutlet weak var secondViewOneMorebt: UIButton!
     @IBOutlet weak var progressView: MBCircularProgressBarView!
+    @IBOutlet weak var dividedLabel: UILabel!
+    @IBOutlet weak var dividedSTTLabel: UILabel!
+    
     func initButton() {
         let btArr: [UIButton?] = [button,nextButton,Play,Stop,secondViewNextbt,secondViewOneMorebt]
         btArr.forEach {
@@ -60,6 +63,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     var accuracy: Int?
     var colorCode: String?
     var dividedSTT: String?
+    var dividedLB: String?
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // Setup your camera here...
@@ -227,6 +231,18 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                     self.accuracy = decodedResponse.accuracy
                     self.colorCode = decodedResponse.colorCode
                     self.dividedSTT = decodedResponse.dividedSTT
+                    self.dividedLB = decodedResponse.dividedLabel
+                    let attributedStr = NSMutableAttributedString(string: self.dividedSTT ?? "")
+                    if let colorCode = self.colorCode {
+                        for (index, character) in colorCode.enumerated() {
+                            if character == "0" {
+                                attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(index...index))
+                            }
+                        }
+                    }
+                    self.dividedLabel.text = self.dividedLB
+                    self.dividedSTTLabel.attributedText = attributedStr
+                    
                     UIView.animate(withDuration: 2.0) {
                         self.progressView.value = CGFloat(self.accuracy ?? 0)
                     }
@@ -235,8 +251,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                         return
                     }
                     email = email.replacingOccurrences(of: ".", with: "_")
-//                    self.ref.child("user_email").child(email).child("accuracy_list").setValue([self.accuracy])
-                    
                     self.ref.child("user_email/\(email)/AccuracyList").observeSingleEvent(of: .value, with: { (snapshot) in
                         switch snapshot.value{
                         case .some(let x):
@@ -396,7 +410,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                                             self.ref.child("user_email/\(email)/AccuracyList/sunday/accuracyArr").setValue([self.accuracy ?? 0])
                                         }
                                     }
-                                    
                                 } catch {
                                     
                                 }
@@ -407,28 +420,6 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                       }) { (error) in
                         print(error.localizedDescription)
                     }
-                    
-//                    self.ref.child("user_email/\(email)/accuracy_list").observeSingleEvent(of: .value, with: { (snapshot) in
-//                        switch snapshot.value{
-//                        case .some(let x):
-//                            let y = "\(x)"
-//                            if y == "<null>" {
-//                                self.ref.child("user_email/\(email)/accuracy_list").setValue([self.accuracy])
-//                            } else {
-//                                let tempAccuracyList = snapshot.value as? NSArray
-//                                self.ref.child("user_email/\(email)/accuracy_list").setValue(tempAccuracyList?.adding(self.accuracy ?? 0))
-//                            }
-//                        case .none:
-//                            print("none")
-//                        }
-//                      }) { (error) in
-//                        print(error.localizedDescription)
-//                    }
-                    
-//                    self.ref.child("users").child(user.uid).setValue(["username": username])
-//                    self.ref.child("users/\(user.uid)/username").setValue(username)
-//                    self.ref.child("user_email").child(Auth.auth().currentUser?.email ?? "").child("accuracy_list").setValue(0)
-//                    self.ref.child("users_email").child(Auth.auth().currentUser?.uid ?? "").setValue(["accuracy_list": self.accuracy ?? 0])
                     self.firstView.isHidden = true
                     self.secondView.isHidden = false
                     if self.wordArr.count == 1 {
