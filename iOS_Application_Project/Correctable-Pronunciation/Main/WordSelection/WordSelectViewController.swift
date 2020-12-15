@@ -23,7 +23,6 @@ class WordSelectViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return wordArr.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "wordSelectCell", for: indexPath) as? WordSelectCollectionViewCell else {
             return UICollectionViewCell()

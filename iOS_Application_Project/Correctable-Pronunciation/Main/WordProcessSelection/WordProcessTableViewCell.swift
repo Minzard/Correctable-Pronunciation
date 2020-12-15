@@ -27,10 +27,14 @@ class WordProcessTableViewCell: UITableViewCell {
         cellHeightConstraint.constant = UIScreen.main.bounds.height / 10
     }
 
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    if highlighted {
+        self.contentView.backgroundColor = UIColor(red: 244/255, green: 245/255, blue: 247/255, alpha: 1)
+    } else {
+        self.contentView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0)
+        }
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
 }
