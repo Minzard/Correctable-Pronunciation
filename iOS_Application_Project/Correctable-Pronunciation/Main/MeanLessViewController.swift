@@ -233,13 +233,25 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
                     self.dividedSTT = decodedResponse.dividedSTT
                     self.dividedLB = decodedResponse.dividedLabel
                     let attributedStr = NSMutableAttributedString(string: self.dividedSTT ?? "")
-                    if let colorCode = self.colorCode {
-                        for (index, character) in colorCode.enumerated() {
-                            if character == "0" {
-                                attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(index...index))
+                    if self.dividedSTT?.count != self.colorCode?.count {
+                        if let dividedSTT = self.dividedSTT, let colorCode = self.colorCode {
+                            for (index, _) in dividedSTT.enumerated() {
+                                let colorCodeIndex = colorCode.index(colorCode.startIndex, offsetBy:index)
+                                if colorCode[colorCodeIndex] == "0" {
+                                    attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(index...index))
+                                }
+                            }
+                        }
+                    } else {
+                        if let colorCode = self.colorCode {
+                            for (index, character) in colorCode.enumerated() {
+                                if character == "0" {
+                                    attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(index...index))
+                                }
                             }
                         }
                     }
+                    
                     self.dividedLabel.text = self.dividedLB
                     self.dividedSTTLabel.attributedText = attributedStr
                     
