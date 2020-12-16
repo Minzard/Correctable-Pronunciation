@@ -422,11 +422,33 @@
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6y3-f8-fC9">
                                                 <rect key="frame" x="212" y="12.5" width="197" height="462"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="썸네일.png" translatesAutoresizingMaskIntoConstraints="NO" id="zhQ-cC-P75">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="462"/>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dG-R9-DUl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="462"/>
+                                                        <state key="normal" title="">
+                                                            <imageReference key="image" image="play.circle" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="light"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="touchUpVideoButton:" destination="AuG-DC-pkZ" eventType="touchUpInside" id="e6Q-55-Vdi"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="B8o-hY-nvN" appends="YES" id="6NS-eP-oES"/>
-                                                </connections>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="zhQ-cC-P75" secondAttribute="bottom" id="AsD-ZN-rFM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zhQ-cC-P75" secondAttribute="trailing" id="Bf8-9D-TJc"/>
+                                                    <constraint firstItem="2dG-R9-DUl" firstAttribute="top" secondItem="6y3-f8-fC9" secondAttribute="top" id="Mkh-NK-eao"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2dG-R9-DUl" secondAttribute="trailing" id="SSa-g6-it5"/>
+                                                    <constraint firstItem="2dG-R9-DUl" firstAttribute="leading" secondItem="6y3-f8-fC9" secondAttribute="leading" id="UHw-Ja-oC6"/>
+                                                    <constraint firstItem="zhQ-cC-P75" firstAttribute="top" secondItem="6y3-f8-fC9" secondAttribute="top" id="eOz-a2-l7k"/>
+                                                    <constraint firstItem="zhQ-cC-P75" firstAttribute="leading" secondItem="6y3-f8-fC9" secondAttribute="leading" id="sKR-m6-7Oq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2dG-R9-DUl" secondAttribute="bottom" id="zvO-ai-tya"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -575,16 +597,13 @@
                         <outlet property="secondView" destination="6Qa-XJ-yWg" id="8Xz-ja-kja"/>
                         <outlet property="secondViewNextbt" destination="f8G-HQ-wpi" id="WfD-5H-T47"/>
                         <outlet property="secondViewOneMorebt" destination="MH6-fz-74j" id="Rjr-D1-D2x"/>
+                        <outlet property="videoButton" destination="2dG-R9-DUl" id="JxS-8i-dsq"/>
                         <outlet property="videoView" destination="6y3-f8-fC9" id="fpu-Od-7y3"/>
                         <outlet property="wordView" destination="wcd-gt-D5r" id="FJm-Zi-paO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qud-nR-ZWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="B8o-hY-nvN">
-                    <connections>
-                        <action selector="VideoClick:" destination="AuG-DC-pkZ" id="DaG-fN-EbG"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="B8o-hY-nvN"/>
             </objects>
             <point key="canvasLocation" x="4511.594202898551" y="193.52678571428569"/>
         </scene>
@@ -1234,7 +1253,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pUb-JI-icF">
-                                <rect key="frame" x="0.0" y="308.5" width="414" height="504.5"/>
+                                <rect key="frame" x="0.0" y="288.5" width="414" height="524.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OMm-sk-zw0">
                                     <size key="itemSize" width="163" height="166"/>
@@ -1296,7 +1315,7 @@
                             <constraint firstItem="pUb-JI-icF" firstAttribute="leading" secondItem="oHI-UW-1jh" secondAttribute="leading" id="g7b-ZT-722"/>
                             <constraint firstItem="Zgy-VV-ENY" firstAttribute="top" secondItem="oHI-UW-1jh" secondAttribute="top" constant="10" id="jQh-3f-DGW"/>
                             <constraint firstAttribute="trailing" secondItem="Zgy-VV-ENY" secondAttribute="trailing" id="n5q-0s-X9y"/>
-                            <constraint firstItem="pUb-JI-icF" firstAttribute="top" secondItem="SLR-6x-oMw" secondAttribute="bottom" constant="20" id="o4f-Ng-1JK"/>
+                            <constraint firstItem="pUb-JI-icF" firstAttribute="top" secondItem="SLR-6x-oMw" secondAttribute="bottom" id="o4f-Ng-1JK"/>
                             <constraint firstItem="gOn-mE-W0l" firstAttribute="leading" secondItem="oHI-UW-1jh" secondAttribute="leading" constant="40" id="p8o-V2-fkm"/>
                             <constraint firstItem="SLR-6x-oMw" firstAttribute="top" secondItem="gOn-mE-W0l" secondAttribute="bottom" constant="30" id="tSC-dn-Faa"/>
                             <constraint firstItem="oHI-UW-1jh" firstAttribute="trailing" secondItem="gOn-mE-W0l" secondAttribute="trailing" constant="40" id="usm-tU-EEg"/>
@@ -1317,8 +1336,10 @@
         <segue reference="1VY-jq-WRJ"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="waveform.path" catalog="system" width="128" height="117"/>
         <image name="그림1.png" width="241.91999816894531" height="227.52000427246094"/>
+        <image name="썸네일.png" width="401" height="721"/>
         <image name="클릭이미지.png" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

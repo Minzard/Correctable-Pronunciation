@@ -42,6 +42,7 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
     @IBOutlet weak var progressView: MBCircularProgressBarView!
     @IBOutlet weak var dividedLabel: UILabel!
     @IBOutlet weak var dividedSTTLabel: UILabel!
+    @IBOutlet weak var videoButton: UIButton!
     
     func initButton() {
         let btArr: [UIButton?] = [button,nextButton,Play,Stop,secondViewNextbt,secondViewOneMorebt]
@@ -117,11 +118,8 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         wordView.layer.borderColor = UIColor(red: 209/255, green: 209/255, blue: 214/255, alpha: 1).cgColor
         wordView.layer.cornerRadius = 9
         // imageView 에 이미지 넣기
-        let imageName = "썸네일.png"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image)
-        imageView.frame = self.videoView.bounds
-        self.videoView.addSubview(imageView)
+       
+        
         // 음성인식 델리게이트 설정
         speechRecognizer?.delegate = self
         // 녹음 설정
@@ -151,20 +149,28 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         }
         
     }
-    // 영상 재생 탭제츠처
-    @IBAction func VideoClick(_ sender: Any) {
-        guard let path = Bundle.main.path(forResource: "아아", ofType:"MOV") else {
-            debugPrint("video.m4v not found")
-            return
+    @IBAction func touchUpVideoButton(_ sender: Any) {
+        var path: String = ""
+        if let pathforResource = Bundle.main.path(forResource: wordArr[0], ofType:"mp4") {
+            path = pathforResource
+        } else {
+            path = Bundle.main.path(forResource: "아", ofType:"mp4") ?? ""
         }
         let player = AVPlayer(url: URL(fileURLWithPath: path))
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.videoView.bounds
         playerLayer.videoGravity = .resize
+        playerLayer.name = "비디오"
         self.videoView.layer.addSublayer(playerLayer)
         
+        self.videoButton.isHidden = true
         player.play()
         videoView.layer.cornerRadius = 6
+        
+    }
+    // 영상 재생 탭제츠처
+    @IBAction func VideoClick(_ sender: Any) {
+        
     }
     // 녹음 버튼
     @IBAction func Recordudio(_ sender: Any) {
@@ -446,10 +452,22 @@ class MeanLessViewController: UIViewController, SFSpeechRecognizerDelegate, AVAu
         }
     }
     @IBAction func touchUpOneMorebt(_ sender: Any) {
+        self.videoView.layer.sublayers?.forEach({
+            if $0.name == "비디오" {
+                $0.removeFromSuperlayer()
+            }
+        })
+        self.videoButton.isHidden = false
         self.progressView.value = 0
         firstViewInit()
     }
     @IBAction func touchUpNextWordbt(_ sender: Any) {
+        self.videoView.layer.sublayers?.forEach({
+            if $0.name == "비디오" {
+                $0.removeFromSuperlayer()
+            }
+        })
+        self.videoButton.isHidden = false
         self.progressView.value = 0
         if wordArr.count == 1 {
             self.navigationController?.popViewController(animated: true)
